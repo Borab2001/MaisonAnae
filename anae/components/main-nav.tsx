@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { cn } from "@/libs/utils";
+
 interface MainNavProps {
     data: any;
 }
@@ -27,6 +29,10 @@ const MainNav: React.FC<MainNavProps> = ({
                     <Link
                         key={route.href}
                         href={route.href}
+                        className={cn(
+                            "text-sm font-medium transition-colors hover:text-black",
+                            route.active ? "text-black" : "text-neutral-500"
+                        )}
                     >
                         {route.label}
                     </Link>
