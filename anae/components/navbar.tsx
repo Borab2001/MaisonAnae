@@ -1,7 +1,10 @@
 import Link from "next/link";
 
 import Container from "@/components/ui/container";
+
 import MainNav from "@/components/main-nav";
+import NavbarActions from "@/components/navbar-actions";
+
 import getCategories from "@/actions/get-categories";
 
 export const revalidate = 0;
@@ -17,6 +20,7 @@ const Navbar = async () => {
                         <p className="font-bold text-xl">Maison Anaé</p>
                     </Link>
                     <MainNav data={categories}/>
+                    <NavbarActions />
                 </div>
             </Container>
         </div>
