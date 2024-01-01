@@ -3,6 +3,7 @@ import getProducts from "@/actions/get-products";
 
 import Billboard from "@/components/billboard";
 import Container from "@/components/ui/container";
+import ProductList from "@/components/product-list";
 
 export const revalidate = 0;
 
