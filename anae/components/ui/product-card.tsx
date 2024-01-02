@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { Product } from "@/types";
+import IconButton from "./icon-button";
 
 interface ProductCardProps {
     data: Product;
@@ -22,10 +23,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     className="aspect-square object-cover rounded-md"
                 />
 
-                {/* Buttons appearing on hover for quick actions */}
+                {/* Buttons  appearing on hover for quick actions */}
                 <div className="opacity-0 group-hover:opacity-100">
                     <div className="flex gap-x-6 justify-center">
-                        
+                        <IconButton />
                     </div>
                 </div>
             </div>
