@@ -19,7 +19,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     alt="Product Image"
                     src={data?.images?.[0]?.url}
                     fill
+                    className="aspect-square object-cover rounded-md"
                 />
+
+                {/* Buttons appearing on hover for quick actions */}
+                <div className="opacity-0 group-hover:opacity-100">
+                    <div className="flex gap-x-6 justify-center">
+                        
+                    </div>
+                </div>
             </div>
         </div>
     );
