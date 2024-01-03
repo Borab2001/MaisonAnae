@@ -1,0 +1,44 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+// export const formatter = new Intl.NumberFormat("en-US", {
+//   style: 'currency',
+//   currency: 'USD'
+// });
+
+export function formatter(locale: string, currency: string) {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currency
+    });
+}
+
+interface CurrencyProps {
+    value?: string | number;
+}
+
+const Currency: React.FC<CurrencyProps> = ({
+    value
+}) => {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) {
+        return null;
+    }
+
+    // Create an instance of the formatter with the user's locale and currency
+    const priceFormatter = formatter(userLocale, userCurrency);
+    
+    return (
+        <div className="font-semibold">
+            {priceFormatter.format(Number(value))}
+        </div>
+    );
+}
+ 
+export default Currency;
