@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     data
 }) => {
     return (
-        <div className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+        <div className="bg-white group cursor-pointer rounded-xl p-3 space-y-4">
             {/* Images & Actions */}
             <div className="aspect-square rounded-xl bg-gray-100 relative">
                 <Image
@@ -50,7 +50,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
             {/* Product Price */}
             <div className="flex items-center justify-between">
-                <Currency value={data?.price} />
+                <Currency value={data?.price} locale="fr-FR" currency="EUR" />
             </div>
         </div>
     );

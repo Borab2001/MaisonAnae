@@ -16,10 +16,14 @@ export function formatter(locale: string, currency: string) {
 
 interface CurrencyProps {
     value?: string | number;
+    locale: string;
+    currency: string;
 }
 
 const Currency: React.FC<CurrencyProps> = ({
-    value
+    value,
+    locale,
+    currency
 }) => {
     const [isMounted, setIsMounted] = useState(false);
 
@@ -32,7 +36,7 @@ const Currency: React.FC<CurrencyProps> = ({
     }
 
     // Create an instance of the formatter with the user's locale and currency
-    const priceFormatter = formatter(userLocale, userCurrency);
+    const priceFormatter = formatter(locale, currency);
     
     return (
         <div className="font-semibold">
