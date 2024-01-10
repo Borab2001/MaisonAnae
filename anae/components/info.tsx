@@ -14,7 +14,7 @@ const Info: React.FC<InfoProps> = ({
     data
 }) => {
     return (
-        <div>
+        <div className="w-full h-full">
             <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
             <div className="mt-3 flex items-end justify-between">
                 <p className="text-2xl text-gray-900">
@@ -35,9 +35,9 @@ const Info: React.FC<InfoProps> = ({
                 </div>
             </div>
             <div className="mt-10 flex items-center gap-x-3">
-                <Button className="flex items-center gap-x-2">
+                <Button className="w-full font-medium rounded-md flex items-center justify-center gap-x-2">
                     Add to Cart
-                    <ShoppingBag /> 
+                    {/* <ShoppingBag /> */}
                 </Button>
             </div>
         </div>
