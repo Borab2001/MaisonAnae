@@ -23,7 +23,6 @@ const ProductPage: React.FC<ProductPageProps> = async ({
 
     return (
         <div className="bg-white">
-            {/* <Container> */}
                 <div className="">
                     <div className="relative lg:grid lg:grid-cols-2 lg:items-start">
                         {/* Gallery */}
@@ -34,9 +33,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                         </div>
                     </div>
                     <hr className="my-10" />
-                    <ProductList title="Related Items" items={suggestedProducts} />
+                    <Container>
+                        <ProductList title="Related Items" items={suggestedProducts} />
+                    </Container>
                 </div>
-            {/* </Container> */}
+            
         </div>
     );
 }

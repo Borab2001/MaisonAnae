@@ -23,14 +23,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
     }
 
     return (
-        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl space-y-4">
+        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl space-y-4 mb-6">
             {/* Images & Actions */}
-            <div className="aspect-square rounded-xl bg-gray-100 relative">
+            <div className="aspect-[187/251] lg:aspect-[3/4] rounded-xl bg-gray-100 relative">
                 <Image
                     alt="Product Image"
                     src={data?.images?.[0]?.url}
                     fill
-                    className="aspect-square object-cover rounded-md"
+                    className="aspect-[187/251] lg:aspect-[3/4] object-cover rounded-md"
                 />
 
                 {/* Buttons  appearing on hover for quick actions */}
