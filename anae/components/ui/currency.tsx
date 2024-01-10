@@ -2,17 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-// export const formatter = new Intl.NumberFormat("en-US", {
-//   style: 'currency',
-//   currency: 'USD'
-// });
+export const formatter = new Intl.NumberFormat("en-US", {
+  style: 'currency',
+  currency: 'USD'
+});
 
-export function formatter(locale: string, currency: string) {
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: currency
-    });
-}
+// export function formatter(locale: string, currency: string) {
+//     return new Intl.NumberFormat(locale, {
+//       style: 'currency',
+//       currency: currency
+//     });
+// }
 
 interface CurrencyProps {
     value?: string | number;
@@ -36,11 +36,11 @@ const Currency: React.FC<CurrencyProps> = ({
     }
 
     // Create an instance of the formatter with the user's locale and currency
-    const priceFormatter = formatter(locale, currency);
+    // const priceFormatter = formatter(locale, currency);
     
     return (
         <div className="font-medium">
-            {priceFormatter.format(Number(value))}
+            {formatter.format(Number(value))}
         </div>
     );
 }

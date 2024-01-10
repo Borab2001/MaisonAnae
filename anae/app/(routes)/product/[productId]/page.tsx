@@ -23,12 +23,12 @@ const ProductPage: React.FC<ProductPageProps> = async ({
 
     return (
         <div className="bg-white">
-            <Container>
-                <div className="px-4 py-10 sm:px-6 lg:px-8">
-                    <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+            {/* <Container> */}
+                <div className="">
+                    <div className="relative lg:grid lg:grid-cols-2 lg:items-start">
                         {/* Gallery */}
                         <Gallery images={product.images} />
-                        <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
+                        <div className="sticky min-h-full-screen top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:mt-0 flex flex-row flex-wrap items-center w-full max-w-[472px] mx-auto">
                             {/* Product Info */}
                             <Info data={product} />
                         </div>
@@ -36,7 +36,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                     <hr className="my-10" />
                     <ProductList title="Related Items" items={suggestedProducts} />
                 </div>
-            </Container>
+            {/* </Container> */}
         </div>
     );
 }
