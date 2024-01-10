@@ -2,15 +2,15 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-black px-4 sm:px-6 lg:px-8">
-            <div className="text-3xl text-white mx-auto py-10 text-center">
+        <footer className="bg-anae-grey px-4 sm:px-6 lg:px-8">
+            <div className="text-3xl text-black mx-auto py-10 text-center">
                 Maison Anaé
             </div>
             <div className="mx-auto py-10">
-                <p className="text-white uppercase mb-4">Footer Section Titles</p>
+                <p className="text-black uppercase mb-4">Footer Section Titles</p>
                 <ul>
                     <li>
-                        <a href="#" className="text-sm text-neutral-500 mb-2 hover:text-white transition">
+                        <a href="#" className="text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
                             Footer Section list
                         </a>
                     </li>

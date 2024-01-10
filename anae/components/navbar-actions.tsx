@@ -18,7 +18,7 @@ const NavbarActions = () => {
     }
 
     return (
-        <div className="ml-auto flex items-center gap-x-4">
+        <div className="ml-auto flex flex-1 items-center justify-end gap-x-4">
             <Button className="relative flex items-center rounded-full bg-transparent px-4 py-2">
                 <ShoppingBag 
                     size={20}
