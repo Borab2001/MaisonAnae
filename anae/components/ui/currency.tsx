@@ -39,7 +39,7 @@ const Currency: React.FC<CurrencyProps> = ({
     const priceFormatter = formatter(locale, currency);
     
     return (
-        <div className="font-semibold">
+        <div className="font-medium">
             {priceFormatter.format(Number(value))}
         </div>
     );
