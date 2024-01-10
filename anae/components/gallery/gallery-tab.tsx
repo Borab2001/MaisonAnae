@@ -12,7 +12,7 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
     image
 }) => {
     return (
-        <Tab className="relative flex items-center justify-center bg-white">
+        <Tab className="relative z-40 flex items-center justify-center bg-white">
             {({ selected }) => (
                 <div>
                     <span className="absolute h-4 w-4 inset-0 overflow-hidden rounded-full">
