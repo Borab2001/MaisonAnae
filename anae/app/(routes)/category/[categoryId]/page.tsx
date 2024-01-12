@@ -50,6 +50,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                                 name="Sizes"
                                 data={sizes}
                             />
+                            <Filter
+                                valueKey="value"
+                                name="Colors"
+                                data={colors}
+                            />
                         </div>
                     </div>
                 </div>
