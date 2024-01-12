@@ -6,6 +6,7 @@ import getColors from '@/actions/get-colors';
 import getCategory from '@/actions/get-category';
 import Container from '@/components/ui/container';
 import Billboard from '@/components/billboard';
+import Filter from './components/filter';
 
 export const revalidate = 0;
 
