@@ -23,14 +23,14 @@ const MainNav: React.FC<MainNavProps> = ({
 
     return (
         <nav
-            className="h-full flex flex-1 items-center"
+            className="h-full flex flex-1 items-center group"
         >
             {routes.map((route) => (
                 <Link
                     key={route.href}
                     href={route.href}
                     className={cn(
-                        "py-2 px-4 h-full flex items-center text-sm font-medium uppercase transition-colors text-black hover:text-black",
+                        "py-2 px-4 h-full flex items-center text-sm font-medium uppercase transition-colors text-black",
                         route.active ? "" : ""
                     )}
                 >

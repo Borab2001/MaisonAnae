@@ -47,7 +47,7 @@ const Filter: React.FC<FilterProps> = ({
 
     return (
         <div className="mb-8">
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-md uppercase font-medium">
                 {name}
             </h3>
             <hr className="my-4" />
@@ -56,7 +56,7 @@ const Filter: React.FC<FilterProps> = ({
                     <div key={filter.id} className="flex items-center">
                         <Button
                             className={cn(
-                                "rounded-none text-sm text-black px-3 py-2 bg-white border border-gray-300",
+                                "rounded-md font-medium text-sm text-black px-3 py-2 bg-white border border-gray-300 hover:opacity-100 hover:border-black transition",
                                 selectedValue === filter.id && "border-black"
                             )}
                             onClick={() =>onClick(filter.id)}
