@@ -5,6 +5,8 @@ import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { Color, Size } from "@/types";
+import Button from "@/components/ui/button";
+import { cn } from "@/libs/utils";
 
 interface FilterProps {
     data: (Size | Color)[];
@@ -44,8 +46,26 @@ const Filter: React.FC<FilterProps> = ({
     }
 
     return (
-        <div>
-            Filter
+        <div className="mb-8">
+            <h3 className="text-lg font-semibold">
+                {name}
+            </h3>
+            <hr className="my-4" />
+            <div className="flex flex-wrap gap-2">
+                {data.map((filter) => (
+                    <div key={filter.id} className="flex items-center">
+                        <Button
+                            className={cn(
+                                "rounded-none text-sm text-black px-3 py-2 bg-white border border-gray-300",
+                                selectedValue === filter.id && "border-black"
+                            )}
+                            onClick={() =>onClick(filter.id)}
+                        >
+                            {filter.value}
+                        </Button>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
