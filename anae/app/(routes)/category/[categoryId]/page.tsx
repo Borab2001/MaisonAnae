@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-
 import getProducts from "@/actions/get-products";
 import getSizes from '@/actions/get-sizes';
 import getColors from '@/actions/get-colors';
 import getCategory from '@/actions/get-category';
 import Container from '@/components/ui/container';
 import Billboard from '@/components/billboard';
+ import NoResults from '@/components/ui/no-results';
+
 import Filter from './components/filter';
 
 export const revalidate = 0;
@@ -55,6 +55,9 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                                 name="Colors"
                                 data={colors}
                             />
+                        </div>
+                        <div className='mt-6 lg:col-span-4 lg:mt-0'>
+                            {products.length === 0 && <NoResults />}
                         </div>
                     </div>
                 </div>
