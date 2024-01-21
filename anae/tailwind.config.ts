@@ -18,7 +18,11 @@ const config: Config = {
       },
       minHeight: {
         'full-screen': 'calc(100vh - 64px)'
-      }
+      },
+      translate: {
+        'full': '100%',
+        '-full': '-100%',
+      },
     },
   },
   plugins: [],
