@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import { Color, Size } from "@/types";
 import Button from "@/components/ui/button";
@@ -21,11 +21,22 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
 }) => {
     const [open, setOpen] = useState(false);
 
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        if (open) {
+            setIsTransitioning(true); // Begin the transition
+        }
+    }, [open]);
+
     const onOpen = () => setOpen(true);
-    const onClose = () => setOpen(false);
+    const onClose = () => {
+        setIsTransitioning(false); // End the transition
+        setTimeout(() => setOpen(false), 300); // Delay the unmounting
+    };
 
     return (
-        <div className="relative z-50">
+        <div>
             <Button onClick={onOpen} className="flex items-center gap-x-2 lg:hidden">
                 Filters
                 <Plus size={20} />
@@ -34,34 +45,35 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
             <Dialog 
                 open={open} 
                 as="div" 
-                className="relative z-40 lg:hidden" 
+                className="relative z-50 lg:hidden" 
                 onClose={onClose}
             >
                 {/* Background */}
-                <div className="fixed inset-0 bg-black bg-opacity-25" />
+                <div className={`fixed inset-0 bg-black transition-opacity ${isTransitioning ? 'opacity-25' : 'opacity-0'}`} />
 
                 {/* Dialog Position */}
                 <div className="fixed inset-0 z-40 flex">
-                    <Dialog.Panel className={`relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl transition-transform duration-300 ease-in-out transform ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+                    <Dialog.Panel className={`relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl transition-transform duration-300 ease-in-out transform ${isTransitioning ? 'translate-x-0' : 'translate-x-full'}`}>
 
-                    {/* Close Button */}
-                    <div className="flex items-center justify-end px-4">
-                        <IconButton icon={<X size={15} />} onClick={onClose}   />
-                    </div>
+                        {/* Close Button */}
+                        <div className="flex items-center justify-end px-4">
+                            <IconButton icon={<X size={20} />} onClick={onClose} classname="shadow-none border-none hover:scale-100"
+                            />
+                        </div>
 
-                    {/* Render the filters */}
-                    <div className="p-4">
-                        <Filter
-                            valueKey="sizeId"
-                            name="Sizes"
-                            data={sizes}
-                        />
-                        <Filter
-                            valueKey="value"
-                            name="Colors"
-                            data={colors}
-                        />
-                    </div>
+                        {/* Render the filters */}
+                        <div className="p-4">
+                            <Filter
+                                valueKey="sizeId"
+                                name="Sizes"
+                                data={sizes}
+                            />
+                            <Filter
+                                valueKey="value"
+                                name="Colors"
+                                data={colors}
+                            />
+                        </div>
                     </Dialog.Panel>
                 </div>
             </Dialog>
