@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import { Color, Size } from "@/types";
 import Button from "@/components/ui/button";
@@ -36,7 +36,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
     };
 
     return (
-        <div>
+        <React.Fragment>
             <Button onClick={onOpen} className="flex items-center gap-x-2 lg:hidden">
                 Filters
                 <Plus size={20} />
@@ -77,7 +77,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
                     </Dialog.Panel>
                 </div>
             </Dialog>
-        </div>
+        </React.Fragment>
     );
 }
  
