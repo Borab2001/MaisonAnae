@@ -3,9 +3,9 @@ import { Inter } from 'next/font/google'
 
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+import ModalProvider from '@/providers/modal-provider'
 
 import './globals.css'
-import ModalProvider from '@/providers/modal-provider'
 
 const font = Inter({ subsets: ['latin'] })
 
