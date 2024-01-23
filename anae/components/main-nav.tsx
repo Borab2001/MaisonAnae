@@ -23,7 +23,7 @@ const MainNav: React.FC<MainNavProps> = ({
 
     return (
         <nav
-            className="h-full flex flex-1 items-center group"
+            className="h-full hidden lg:flex flex-1 items-center group"
         >
             {routes.map((route) => (
                 <Link
