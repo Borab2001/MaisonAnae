@@ -11,6 +11,15 @@ import useCart from "@/hooks/use-cart";
 
 
 const Summary = () => {
+
+    const searchParams = useSearchParams(); 
+    const items = useCart((state) => state.items);
+    const removeAll = useCart((state) => state.removeAll);
+
+    const totalPrice = items.reduce((total, item) => {
+        return total + Number(item.price)
+    }, 0);
+
     return (
         <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
             <h2 className="text-lg font-medium text-gray-900 uppercase">
@@ -21,7 +30,7 @@ const Summary = () => {
                     <div className="text-base font-medium text-gray-900">
                         Order Total
                     </div>
-                    <Currency value={45} locale={""} currency={""} />
+                    <Currency value={totalPrice} locale={""} currency={""} />
                 </div>
             </div>
             <Button className="w-full mt-6 rounded-md uppercase font-medium">
