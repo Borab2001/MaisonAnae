@@ -59,7 +59,7 @@ const Filter: React.FC<FilterProps> = ({
                                 "min-w-[44px] w-auto rounded-md font-medium text-sm text-black px-1 py-2 bg-white border border-gray-300 hover:opacity-100 hover:border-black transition",
                                 selectedValue === filter.id && "border-black",
                             )}
-                            onClick={() =>onClick(filter.id)}
+                            onClick={() => onClick(filter.id)}
                         >
                             {filter.value}
                         </Button>
