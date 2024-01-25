@@ -16,6 +16,13 @@ interface CartItemProps {
 const CartItem: React.FC<CartItemProps> = ({
     data
 }) => {
+
+    const cart = useCart();
+    
+    const onRemove = () => {
+        cart.removeItem(data.id);
+    }
+
     return (
         <li className="flex py-6 border-b">
             <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
@@ -29,7 +36,7 @@ const CartItem: React.FC<CartItemProps> = ({
             <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
                 <div className="absolute z-10 right-0 top-0">
                     <IconButton 
-                        onClick={() => {}} 
+                        onClick={onRemove} 
                         classname="bg-white text-gray-400 border-gray-400 hover:text-red-500 hover:border-red-500 rounded-md shadow-none" 
                         icon={<Trash size={20} />} 
                     />
