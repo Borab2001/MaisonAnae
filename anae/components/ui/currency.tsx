@@ -7,23 +7,13 @@ export const formatter = new Intl.NumberFormat("en-US", {
   currency: 'USD'
 });
 
-// export function formatter(locale: string, currency: string) {
-//     return new Intl.NumberFormat(locale, {
-//       style: 'currency',
-//       currency: currency
-//     });
-// }
 
 interface CurrencyProps {
     value?: string | number;
-    locale: string;
-    currency: string;
 }
 
 const Currency: React.FC<CurrencyProps> = ({
     value,
-    locale,
-    currency
 }) => {
     const [isMounted, setIsMounted] = useState(false);
 
@@ -34,9 +24,6 @@ const Currency: React.FC<CurrencyProps> = ({
     if (!isMounted) {
         return null;
     }
-
-    // Create an instance of the formatter with the user's locale and currency
-    // const priceFormatter = formatter(locale, currency);
     
     return (
         <div className="font-medium">

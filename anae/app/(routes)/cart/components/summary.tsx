@@ -35,7 +35,7 @@ const Summary = () => {
         }
 
         if (searchParams.get("cancelled")) {
-            toast.error("Payment unsucessful");
+            toast.error("Payment unsuccessful");
         }
     }, [searchParams, removeAll]);
 
