@@ -22,13 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
-        <ModalProvider />
-        <ToastProvider />
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+		<body className={font.className}>
+			<ModalProvider />
+			<ToastProvider />
+			<Navbar />
+			<div className="mt-16">
+				{children}
+			</div>
+			<Footer />
+		</body>
     </html>
   )
 }

@@ -27,7 +27,7 @@ const MainNav: React.FC<MainNavProps> = ({
             className="h-full flex flex-1 items-center group"
         >
             <Sidebar data={data} />
-            {routes.map((route) => (
+            {/* {routes.map((route) => (
                 <Link
                     key={route.href}
                     href={route.href}
@@ -38,7 +38,7 @@ const MainNav: React.FC<MainNavProps> = ({
                 >
                     {route.label}
                 </Link>
-            ))}
+            ))} */}
         </nav>
     );
 }

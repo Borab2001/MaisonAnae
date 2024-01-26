@@ -45,18 +45,18 @@ const Sidebar: React.FC<SidebarProps> = ({
 
     return (
         <>
-            <Button onClick={onOpen} className="shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2 lg:hidden">
+            <Button onClick={onOpen} className="shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
                 <Menu size={20} />
             </Button>
 
             <Dialog 
                 open={open} 
                 as="div" 
-                className="relative z-50 lg:hidden" 
+                className="relative z-50" 
                 onClose={onClose}
             >
                 {/* Background */}
-                <div className={`fixed inset-0 bg-black transition-opacity ${isTransitioning ? 'opacity-25' : 'opacity-0'}`} />
+                <div className={`fixed inset-0 bg-black transition-all ${isTransitioning ? 'opacity-25' : 'opacity-0'}`} />
 
                 {/* Dialog Position */}
                 <div className="fixed inset-0 z-40 flex">
@@ -79,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                     href={route.href}
                                     className={cn(
                                         "py-2 px-4 block text-sm font-medium uppercase transition-colors text-black",
-                                        route.active ? "text-blue-500" : "text-black" // Example active class styling
+                                        route.active ? "underline" : "" // Example active class styling
                                     )}
                                 >
                                     {route.label}
