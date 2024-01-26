@@ -23,7 +23,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="bg-anae-grey px-4 sm:px-6 lg:px-8">
+        <footer className="bg-gray-50 px-4 sm:px-6 lg:px-8">
             <div className="text-3xl text-black mx-auto py-10 text-center">
                 Maison Anaé
             </div>
