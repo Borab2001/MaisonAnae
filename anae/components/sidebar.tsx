@@ -43,6 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         active: pathname === `/category/${route.id}`,
     }));
 
+    
     return (
         <>
             <Button onClick={onOpen} className="shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
@@ -77,6 +78,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                                 <Link
                                     key={route.href}
                                     href={route.href}
+                                    onClick={onClose}
                                     className={cn(
                                         "py-2 px-4 block text-sm font-medium uppercase transition-colors text-black",
                                         route.active ? "underline" : "" // Example active class styling
