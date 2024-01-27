@@ -46,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     
     return (
         <>
-            <Button onClick={onOpen} className="shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
+            <Button onClick={onOpen} className="px-2 py-2 shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
                 <Menu size={20} />
             </Button>
 
@@ -64,23 +64,23 @@ const Sidebar: React.FC<SidebarProps> = ({
                     <Dialog.Panel className={`relative mr-auto flex h-full w-full max-w-sm flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl transition-transform duration-300 ease-in-out transform ${isTransitioning ? 'translate-x-0' : '-translate-x-full'}`}>
 
                         {/* Close Button */}
-                        <div className="flex items-center justify-start px-4">
+                        <div className="flex items-center justify-start px-4 sm:px-6 lg:px-8">
                             <IconButton 
                                 icon={<Menu size={20} />} 
                                 onClick={onClose} 
-                                classname="shadow-none border-none hover:scale-100"
+                                classname="px-2 shadow-none border-none hover:scale-100"
                             />
                         </div>
 
                         {/* Render the links */}
-                        <div className="p-4">
+                        <div className="px-4 sm:px-6 lg:px-8 py-4">
                             {routes.map((route) => (
                                 <Link
                                     key={route.href}
                                     href={route.href}
                                     onClick={onClose}
                                     className={cn(
-                                        "py-2 px-4 block text-sm font-medium uppercase transition-colors text-black",
+                                        "py-2 px-2 block text-sm font-medium uppercase transition-colors text-black",
                                         route.active ? "underline" : "" // Example active class styling
                                     )}
                                 >
