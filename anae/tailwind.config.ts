@@ -17,7 +17,7 @@ const config: Config = {
         'anae-grey': '#f8f8f8',
       },
       height: {
-        'billboard-full': 'calc(100vh - 64px)'
+        'image-full': 'calc(100vh - 64px)',
       },
       translate: {
         'full': '100%',

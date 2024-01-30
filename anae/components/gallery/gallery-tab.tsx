@@ -12,17 +12,11 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
     image
 }) => {
     return (
+        // images taking the full height of the page and dividing into 2
         <Tab className="relative z-40 flex items-center justify-center bg-white">
             {({ selected }) => (
                 <div>
-                    <span className="absolute h-4 w-4 inset-0 overflow-hidden rounded-full">
-                        {/* <Image 
-                            fill
-                            src={image.url}
-                            alt=""
-                            className="object-cover object-center"
-                        /> */}
-                    </span>
+                    <span className="absolute h-4 w-4 inset-0 overflow-hidden rounded-full" />
                     <span className={cn(
                         "w-4 h-4 absolute inset-0 rounded-full",
                         selected ? "bg-gray-500" : "bg-gray-400"
@@ -30,6 +24,26 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
                 </div>
             )}
         </Tab>
+
+        // images shown under that onclick change the bigger image
+        // <Tab className="relative flex aspect-square cursor-pointer items-center justify-center rounded-md bg-white">
+        //     {({ selected }) => (
+        //         <div>
+        //             <span className="absolute h-full w-full aspect-square inset-0 overflow-hidden rounded-md">
+        //                 <Image 
+        //                     fill 
+        //                     src={image.url} 
+        //                     alt="" 
+        //                     className="object-cover object-center" 
+        //                 />
+        //             </span>
+        //             <span className={cn(
+        //                 'absolute inset-0 rounded-md ring-2 ring-offset-2',
+        //                 selected ? 'ring-black' : 'ring-transparent',
+        //             )} />
+        //         </div>
+        //     )}
+        // </Tab>
     );
 }
  
