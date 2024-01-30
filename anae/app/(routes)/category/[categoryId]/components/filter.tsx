@@ -5,7 +5,8 @@ import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { Color, Size } from "@/types";
-import Button from "@/components/ui/button";
+// import Button from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/libs/utils";
 
 interface FilterProps {
@@ -25,17 +26,14 @@ const Filter: React.FC<FilterProps> = ({
 
     const selectedValue = searchParams.get(valueKey);
 
-    const onClick = (id: string) => {
+    const onChange = (id: string, isChecked: boolean) => {
         const current = qs.parse(searchParams.toString());
         
+        // If the checkbox is checked, add the filter; otherwise, remove it
         const query = {
             ...current,
-            [valueKey]: id
+            [valueKey]: isChecked ? id : null
         };
-
-        if (current[valueKey] === id) {
-            query[valueKey] = null;
-        }
 
         const url = qs.stringifyUrl({
             url: window.location.href,
@@ -43,7 +41,7 @@ const Filter: React.FC<FilterProps> = ({
         }, { skipNull: true });
 
         router.push(url);
-    }
+    };
 
     return (
         <div className="mb-8">
@@ -54,15 +52,11 @@ const Filter: React.FC<FilterProps> = ({
             <div className="flex flex-wrap gap-2">
                 {data.map((filter) => (
                     <div key={filter.id} className="flex items-center">
-                        <Button
-                            className={cn(
-                                "min-w-[44px] w-auto rounded-md font-medium text-sm text-black px-1 py-2 bg-white border border-gray-300 hover:opacity-100 hover:border-black transition",
-                                selectedValue === filter.id && "border-black",
-                            )}
-                            onClick={() => onClick(filter.id)}
-                        >
-                            {filter.value}
-                        </Button>
+                        <Checkbox
+                            checked={selectedValue === filter.id}
+                            onCheckChange={(isChecked) => onChange(filter.id, isChecked)}
+                        />
+                        <span>{filter.value}</span>
                     </div>
                 ))}
             </div>
