@@ -15,9 +15,14 @@ const Gallery: React.FC<GalleryProps> = ({
     images
 }) => {
     return (
-        <Tab.Group as="div" className="block">
-            <div className="mx-auto hidden w-full max-w-2xl sm:block lg:max-w-none">
-                <Tab.List className="grid grid-cols-4 gap-6">
+        <Tab.Group as="div" className="block relative overflow-hidden">
+            <div className="absolute bottom-10 left-10 outline-none z-10 mx-auto hidden w-full max-w-2xl sm:block lg:max-w-none">
+                {/* <Tab.List className="grid grid-cols-4 gap-6">
+                    {images.map((image) => (
+                        <GalleryTab key={image.id} image={image} />
+                    ))}
+                </Tab.List> */}
+                <Tab.List className="h-full flex flex-col gap-2">
                     {images.map((image) => (
                         <GalleryTab key={image.id} image={image} />
                     ))}

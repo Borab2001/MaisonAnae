@@ -13,15 +13,12 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
 }) => {
     return (
         // images taking the full height of the page and dividing into 2
-        <Tab className="relative z-40 flex items-center justify-center bg-white">
+        <Tab className="w-2 h-2 flex items-center justify-center rounded-full">
             {({ selected }) => (
-                <div>
-                    <span className="absolute h-4 w-4 inset-0 overflow-hidden rounded-full" />
-                    <span className={cn(
-                        "w-4 h-4 absolute inset-0 rounded-full",
-                        selected ? "bg-gray-500" : "bg-gray-400"
-                    )} />
-                </div>
+                <span className={cn(
+                    "w-full h-full rounded-full",
+                    selected ? "bg-gray-800" : "bg-gray-500"
+                )} />
             )}
         </Tab>
 
