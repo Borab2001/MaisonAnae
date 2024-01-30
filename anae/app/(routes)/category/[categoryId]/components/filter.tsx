@@ -49,14 +49,20 @@ const Filter: React.FC<FilterProps> = ({
                 {name}
             </h3>
             <hr className="my-4" />
-            <div className="flex flex-wrap gap-2">
-                {data.map((filter) => (
-                    <div key={filter.id} className="flex items-center">
+            <div className="flex flex-col flex-wrap gap-2">
+                {data.sort((a, b) => a.name.localeCompare(b.name)).map((filter) => (
+                    <div key={filter.id} className="flex items-center space-x-2">
                         <Checkbox
+                            id="filter"
                             checked={selectedValue === filter.id}
                             onCheckChange={(isChecked) => onChange(filter.id, isChecked)}
                         />
-                        <span>{filter.value}</span>
+                        <label
+                                htmlFor="filter"
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                                {filter.name}
+                        </label>
                     </div>
                 ))}
             </div>
