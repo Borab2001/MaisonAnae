@@ -16,8 +16,8 @@ const config: Config = {
       colors: {
         'anae-grey': '#f8f8f8',
       },
-      minHeight: {
-        'full-screen': 'calc(100vh - 64px)'
+      height: {
+        'billboard-full': 'calc(100vh - 64px)'
       },
       translate: {
         'full': '100%',

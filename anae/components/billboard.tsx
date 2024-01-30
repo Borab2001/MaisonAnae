@@ -8,7 +8,9 @@ const Billboard: React.FC<BillboardProps> = ({
     data
 }) => {
     return (
-        <div className="h-[480px] lg:h-[680px] overflow-hidden">
+        // <div className="h-[480px] lg:h-[680px] overflow-hidden">
+        <div className="h-[480px] lg:h-billboard-full overflow-hidden">
+
             <div
                 className="relative bg-cover top-0 left-0 w-full h-full object-cover"
                 style={{ 
