@@ -33,7 +33,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                     <div className="relative lg:grid lg:grid-cols-2 lg:items-start">
                         {/* Gallery */}
                         <Gallery images={product.images} />
-                        <div className="sticky w-full h-image-full top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:mt-0 flex flex-row flex-wrap items-center max-w-[472px] mx-auto">
+                        <div className="sticky w-full lg:h-image-full top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:my-auto flex flex-row flex-wrap items-center lg:max-w-[472px] mx-auto">
                             {/* Product Info */}
                             <Info data={product} />
                         </div>

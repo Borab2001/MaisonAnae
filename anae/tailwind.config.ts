@@ -72,6 +72,13 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      height: {
+        'image-full': 'calc(100vh - 64px)',
+      },
+      translate: {
+        'full': '100%',
+        '-full': '-100%',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
