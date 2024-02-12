@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/libs/utils";
 
 interface FilterProps {
-    data: (Size | Color)[];
+    data: (Color | Size)[];
     name: string;
     valueKey: string;
 }
@@ -25,21 +25,49 @@ const Filter: React.FC<FilterProps> = ({
     const router = useRouter();
 
     const selectedValue = searchParams.get(valueKey);
+    
+    // const onChange = (id: string, isChecked: boolean) => {
+    //     const current = qs.parse(searchParams.toString());
+        
+    //     // If the checkbox is checked, add the filter; otherwise, remove it
+    //     const query = {
+    //         ...current,
+    //         [valueKey]: isChecked ? id : null
+    //     };
+
+    //     const url = qs.stringifyUrl({
+    //         url: window.location.href,
+    //         query
+    //     }, { skipNull: true });
+
+    //     router.push(url);
+    // };
+
+    const selectedValues = searchParams.get(valueKey)?.split(',') || [];
 
     const onChange = (id: string, isChecked: boolean) => {
-        const current = qs.parse(searchParams.toString());
-        
-        // If the checkbox is checked, add the filter; otherwise, remove it
+        const currentParams = qs.parse(searchParams.toString());
+        let updatedValues = [...selectedValues];
+    
+        if (isChecked) {
+            // Add the selected filter if it's not already included.
+            updatedValues = [...updatedValues, id];
+        } else {
+            // Remove the selected filter if it was previously included.
+            updatedValues = updatedValues.filter(value => value !== id);
+        }
+    
+        // Update the query with the new set of values for this filter type.
         const query = {
-            ...current,
-            [valueKey]: isChecked ? id : null
+            ...currentParams,
+            [valueKey]: updatedValues.join(',') || null,
         };
-
+    
         const url = qs.stringifyUrl({
             url: window.location.href,
-            query
-        }, { skipNull: true });
-
+            query,
+        }, { skipNull: true, skipEmptyString: true });
+    
         router.push(url);
     };
 

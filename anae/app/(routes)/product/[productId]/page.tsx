@@ -1,14 +1,16 @@
+import ProductList from "@/components/product-list";
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
-import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
 
+export const revalidate = 0;
+
 interface ProductPageProps {
     params: {
         productId: string;
-    }
+    },
 }
 
 const ProductPage: React.FC<ProductPageProps> = async ({
@@ -20,6 +22,10 @@ const ProductPage: React.FC<ProductPageProps> = async ({
     const suggestedProducts = await getProducts({
         categoryId: product?.category?.id
     })
+
+    if (!product) {
+        return null;
+    }
 
     return (
         <div className="bg-white">
