@@ -39,13 +39,19 @@ const Info: React.FC<InfoProps> = ({
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Description:</h3>
                     <div>
-                        {data?.size?.description}
+                        {data.description}
                     </div>
                 </div>
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Composition:</h3>
                     <div>
-                        {data?.size?.composition}
+                        {data.composition}
+                    </div>
+                </div>
+                <div className="flex items-center gap-x-4">
+                    <h3 className="font-semibold text-black">Size:</h3>
+                    <div>
+                        {data?.size?.value}
                     </div>
                 </div>
             </div>
