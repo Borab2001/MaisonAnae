@@ -13,7 +13,7 @@ const Navbar = async () => {
     const categories = await getCategories();
 
     return (
-        <div className="bg-white w-full border-b fixed top-0 z-40">
+        <div className="bg-white w-full fixed top-0 z-40">
             <Container>
                 <div className="relative flex h-16 items-center">
                     <MainNav data={categories}/>

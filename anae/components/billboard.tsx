@@ -9,10 +9,10 @@ const Billboard: React.FC<BillboardProps> = ({
 }) => {
     return (
         // <div className="h-[480px] lg:h-[680px] overflow-hidden">
-        <div className="h-[480px] lg:h-image-full overflow-hidden">
+        <div className="h-[480px] lg:h-image-full overflow-hidden p-4">
 
             <div
-                className="relative bg-cover top-0 left-0 w-full h-full object-cover"
+                className="relative bg-cover top-0 left-0 w-full h-full object-cover rounded-lg"
                 style={{ 
                     backgroundImage: `url(${data?.imageUrl})`,
                     backgroundPosition: 'center'
