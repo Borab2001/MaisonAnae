@@ -3,7 +3,7 @@ import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
 import Container from "@/components/ui/container";
 import Gallery from "@/components/gallery";
-import Info from "@/components/info";
+import ProductInfo from "@/components/product-info";
 
 export const revalidate = 0;
 
@@ -35,10 +35,13 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                         <Gallery images={product.images} />
                         <div className="sticky w-full lg:h-image-full top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:my-auto flex flex-row flex-wrap items-center lg:max-w-[472px] mx-auto">
                             {/* Product Info */}
-                            <Info data={product} />
+                            <ProductInfo data={product} />
                         </div>
                     </div>
                     <Container>
+                        <div className="mt-16">
+                            <ProductInfo data={product} showDescription />
+                        </div>
                         <hr className="mt-24 mb-10" />
                         <ProductList title="Related Items" items={suggestedProducts} />
                     </Container>
