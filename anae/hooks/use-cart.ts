@@ -4,7 +4,11 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { Product } from "@/types";
 import toast from "react-hot-toast";
 
-interface CartStore {
+export interface CartOrder extends Product {
+    orderQuantity: number;
+}
+
+type CartStore = {
     items: Product[];
     addItem: (data: Product) => void;
     removeItem: (data: string) => void;
