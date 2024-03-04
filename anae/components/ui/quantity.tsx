@@ -3,6 +3,12 @@ import { Button } from "./button";
 import { Input } from "./input";
 
 const Quantity = () => {
+    const quantitySchema = z.object({
+        quantity: z.number().int({ message: "Decimals are not allowed" })
+        .min(1, { message: "Quantity must be at least 1" })
+        .max(1000, { message: "Quantity cannot be more than 1000" }),
+    });
+
     return (
         <div>
             <h2 className="text-sm font-medium text-foreground mb-2">Quantity</h2>
