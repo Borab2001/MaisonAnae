@@ -9,8 +9,8 @@ export interface CartOrder extends Product {
 }
 
 type CartStore = {
-    items: Product[];
-    addItem: (data: Product) => void;
+    items: CartOrder[];
+    addItem: (data: CartOrder) => void;
     removeItem: (data: string) => void;
     removeAll: () => void;
 }
@@ -18,16 +18,27 @@ type CartStore = {
 const useCart = create(
     persist<CartStore>((set, get) => ({
         items: [],
-        addItem: (data: Product) => {
-            const currentItems = get().items;
-            const existingItem = currentItems.find((item) => item.id === data.id);
+        addItem: (data: CartOrder) => {
+            const currentItems: CartOrder[] = get().items;
+            const existingItem: CartOrder[] | undefined = currentItems.find((item) => item.id === data.id);
+            const availableStock: number = data.quantity - (existingItem ? existingItem.orderQuantity: 0);
 
             if (existingItem) {
-                return toast("Item already in cart");
+                if (availableStock >= data.orderQuantity) {
+                    existingItem.orderQuantity += data.orderQuantity;
+                    set({ items: [...currentItems] });
+                    toast.success(`Added ${data.orderQuantity} to the existing product`);
+                } else if (availableStock > 0) {
+                    existingItem.orderQuantity += availableStock;
+                    set({ items: [...currentItems] });
+                    toast.success(`Added ${availableStock} to the existing product. Maximum available stock reached`);
+                } else {
+                    toast.error ("All available quantity already in cart")
+                }
+            } else {
+                set({ items: [...currentItems, data] });
+                toast.success("Item added to cart");
             }
-
-            set({ items: [...get().items, data] });
-            toast.success("Item added to cart");
         },
 
         removeItem: (id: string) => {
