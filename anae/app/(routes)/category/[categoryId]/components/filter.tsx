@@ -5,7 +5,7 @@ import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { Color, Size } from "@/types";
-// import Button from "@/components/ui/button";
+// import CustomButton from "@/components/ui/CustomButton";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/libs/utils";
 

@@ -4,7 +4,7 @@
 
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
-import Button from "@/components/ui/button";
+import CustomButton from "@/components/ui/custom-button";
 
 interface ProductInfoProps {
     data: Product;
@@ -57,9 +57,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                     {/* <div>
                         {data?.size?.value}
                     </div> */}
-                    <Button className="w-auto h-auto p-2 bg-transparent text-black border-none block font-normal hover:underline">
+                    <CustomButton className="w-auto h-auto p-2 bg-transparent text-black border-none block font-normal hover:underline">
                         {data?.size?.value}
-                    </Button>
+                    </CustomButton>
                 </div>
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Color:</h3>
@@ -70,10 +70,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                 </div>
             </div>
             <div className="mt-10 flex items-center gap-x-3">
-                <Button className="w-full font-medium rounded-md flex items-center justify-center gap-x-2">
+                <CustomButton className="w-full font-medium rounded-md flex items-center justify-center gap-x-2">
                     Add to Cart
                     {/* <ShoppingBag /> */}
-                </Button>
+                </CustomButton>
             </div>
         </div>
     );

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import Button from "@/components/ui/button";
+import CustomButton from "@/components/ui/custom-button";
 import { Menu } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import IconButton from "@/components/ui/icon-button";
@@ -46,9 +46,9 @@ const Sidebar: React.FC<SidebarProps> = ({
     
     return (
         <>
-            <Button onClick={onOpen} className="px-2 py-2 shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
+            <CustomButton onClick={onOpen} className="px-2 py-2 shadow-none border-none hover:scale-100 bg-transparent text-black flex items-center gap-x-2">
                 <Menu size={20} />
-            </Button>
+            </CustomButton>
 
             <Dialog 
                 open={open} 

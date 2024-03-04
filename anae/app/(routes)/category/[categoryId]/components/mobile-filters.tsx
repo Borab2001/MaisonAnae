@@ -3,7 +3,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import { Color, Size } from "@/types";
-import Button from "@/components/ui/button";
+import CustomButton from "@/components/ui/custom-button";
 import { Plus, X } from "lucide-react";
 import { Dialog } from "@headlessui/react";
 import IconButton from "@/components/ui/icon-button";
@@ -37,10 +37,10 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
 
     return (
         <React.Fragment>
-            <Button onClick={onOpen} className="flex items-center gap-x-2 lg:hidden">
+            <CustomButton onClick={onOpen} className="flex items-center gap-x-2 lg:hidden">
                 Filters
                 <Plus size={20} />
-            </Button>
+            </CustomButton>
 
             <Dialog 
                 open={open} 
