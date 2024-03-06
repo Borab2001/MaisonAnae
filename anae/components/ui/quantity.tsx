@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import z from "zod";
 import { Button } from "./button";
 import { Input } from "./input";
@@ -8,6 +9,18 @@ const Quantity = () => {
         .min(1, { message: "Quantity must be at least 1" })
         .max(1000, { message: "Quantity cannot be more than 1000" }),
     });
+
+    const handleQuantity = (e: ChangeEvent<HTMLInputElement>) => {
+        let error = null;
+
+        if (e.target.value === "") {
+            setQuantity(0);
+            error = "Quantity can't be empty";
+        } else {
+            setQuantity(parseFloat(e.target.value));
+        }
+        setError(error);
+    }
 
     return (
         <div>
