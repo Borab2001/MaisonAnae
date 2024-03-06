@@ -53,6 +53,7 @@ const Summary = () => {
                 </div>
             </div>
             <CustomButton
+                disabled={items.length === 0}
                 onClick={onCheckout}
                 className="w-full mt-6 rounded-md uppercase font-medium">
                 Checkout
