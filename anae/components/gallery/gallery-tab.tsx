@@ -13,7 +13,7 @@ const GalleryTab: React.FC<GalleryTabProps> = ({
 }) => {
     return (
         // images taking the full height of the page and dividing into 2
-        <Tab className="w-2 h-2 flex items-center justify-center rounded-full">
+        <Tab className="w-2 h-2 aspect-auto flex items-center justify-center rounded-full">
             {({ selected }) => (
                 <span className={cn(
                     "w-full h-full rounded-full",

@@ -30,7 +30,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
     return (
         <div className="bg-white">
                 <div className="">
-                    <div className="flex flex-col lg:flex-row items-start">
+                    <div className="h-image-full pb-4 lg:pb-0 flex flex-col lg:flex-row items-center">
                         {/* Gallery */}
                         <Gallery images={product.images} />
                         <div className="h-auto lg:h-image-full flex flex-column justify-center items-center sticky w-full max-w-[472px] mx-auto top-16 bottom-0 z-10">

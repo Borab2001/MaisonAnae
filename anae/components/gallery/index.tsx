@@ -35,20 +35,24 @@ const Gallery: React.FC<GalleryProps> = ({
     }, [api])
 
     return (
-            <Carousel setApi={setApi} orientation="horizontal" className="block h-full w-full lg:max-w-[50%]">
-                <CarouselContent>
-                    {images.map((image) => (
-                        <CarouselItem className="w-full h-full min-h-16 lg:h-image-full" key={image.id}>
-                            <Image 
-                                fill
-                                src={image.url}
-                                alt="Image"
-                                className="object-cover object-center"
-                            />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
+        <Carousel setApi={setApi} orientation="horizontal" className="block h-full w-full max-w-[800px] lg:max-w-[50%]">
+            <CarouselContent className="w-full h-full">
+                {images.map((image) => (
+                    <CarouselItem 
+                        className="w-full h-full min-h-[600px] lg:h-image-full bg-cover bg-center" 
+                        key={image.id}
+                        style={{ backgroundImage: `url(${image.url})` }}
+                    >
+                        {/* <Image 
+                            fill
+                            src={image.url}
+                            alt="Image"
+                            className="object-cover object-center"
+                        /> */}
+                    </CarouselItem>
+                ))}
+            </CarouselContent>
+        </Carousel>
     );
 }
  
