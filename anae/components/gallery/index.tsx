@@ -39,7 +39,7 @@ const Gallery: React.FC<GalleryProps> = ({
             <CarouselContent className="w-full h-full">
                 {images.map((image) => (
                     <CarouselItem 
-                        className="w-full h-full min-h-[600px] lg:h-image-full bg-cover bg-center" 
+                        className="w-full h-full min-h-[600px] lg:h-image-full bg-cover bg-center"
                         key={image.id}
                         style={{ backgroundImage: `url(${image.url})` }}
                     >
