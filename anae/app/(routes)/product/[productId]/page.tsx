@@ -30,10 +30,12 @@ const ProductPage: React.FC<ProductPageProps> = async ({
     return (
         <div className="bg-white">
                 <div className="">
-                    <div className="relative lg:grid lg:grid-cols-2 lg:items-start">
+                    {/* <div className="relative lg:grid lg:grid-cols-2 lg:items-start"> */}
+                    <div className="flex flex-row items-start">
                         {/* Gallery */}
-                        <Gallery images={product.images} />
-                        <div className="sticky w-full lg:h-image-full top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:my-auto flex flex-row flex-wrap items-center lg:max-w-[472px] mx-auto">
+                        <Gallery images={product.images} /> {/* RepresentClo : block h-full w-full max-w-[50%] */}
+                        {/* <div className="fixed w-full lg:h-image-full overflow-hidden top-16 mt-10 px-4 sm:mt-16 sm:px-6 lg:px-8 lg:my-auto flex flex-row flex-wrap items-center lg:max-w-[472px] mx-auto">  */}
+                        <div className="h-image-full flex flex-column justify-center items-center sticky w-full max-w-[472px] mx-auto top-16 bottom-0 z-10">
                             {/* Product Info */}
                             <ProductInfo data={product} />
                         </div>
