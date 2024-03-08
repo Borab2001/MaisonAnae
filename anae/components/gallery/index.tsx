@@ -35,43 +35,20 @@ const Gallery: React.FC<GalleryProps> = ({
     }, [api])
 
     return (
-        // <Carousel className="block relative overflow-hidden">
-        <Carousel setApi={setApi} orientation="vertical" className="block h-full w-full max-w-[50%]">
-            <CarouselContent>
-                <CarouselItem className="bg-black w-full h-full lg:min-h-screen">
-                    Example
-                </CarouselItem>
-                <CarouselItem className="bg-red-500 w-full h-full lg:min-h-screen">
-                    Example
-                </CarouselItem>
-            </CarouselContent>
-            <div className="absolute bottom-10 left-10 outline-none z-10 mx-auto hidden w-full max-w-2xl sm:block lg:max-w-none">
-                {/* <Tab.List className="grid grid-cols-4 gap-6">
+            <Carousel setApi={setApi} orientation="horizontal" className="block h-full w-full lg:max-w-[50%]">
+                <CarouselContent>
                     {images.map((image) => (
-                        <GalleryTab key={image.id} image={image} />
-                    ))}
-                </Tab.List> */}
-                {/* <Tab.List className="h-full flex flex-col gap-2">
-                    {images.map((image) => (
-                        <GalleryTab key={image.id} image={image} />
-                    ))}
-                </Tab.List> */}
-            </div>
-            {/* <Tab.Panels className="w-full">
-                {images.map((image) => (
-                    <Tab.Panel key={image.id}>
-                        <div className="aspect-square sm:aspect-auto lg:aspect-square relative sm:h-image-full w-full overflow-hidden">
+                        <CarouselItem className="w-full h-full min-h-16 lg:h-image-full" key={image.id}>
                             <Image 
                                 fill
                                 src={image.url}
                                 alt="Image"
                                 className="object-cover object-center"
                             />
-                        </div>
-                    </Tab.Panel>
-                ))}
-            </Tab.Panels> */}
-        </Carousel>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
     );
 }
  
