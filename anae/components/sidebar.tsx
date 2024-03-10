@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="block lg:hidden">
             <Sheet>
                 <SheetTrigger>
-                    <Button variant="default" className="h-9 px-2 py-2 shadow-none rounded-full border-none bg-neutral-200/50 backdrop-blur-md text-black flex items-center gap-x-2">
+                    <Button variant="icon" size="icon">
                         <Menu size={20} />
                     </Button>
                 </SheetTrigger>
