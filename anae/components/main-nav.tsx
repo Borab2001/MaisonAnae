@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import { cn } from "@/libs/utils";
 import { Category } from "@/types";
 import Sidebar from "./sidebar";
+import { Button } from "./ui/button";
 
 interface MainNavProps {
     data: Category[];
@@ -14,6 +15,7 @@ interface MainNavProps {
 const MainNav: React.FC<MainNavProps> = ({
     data
 }) => {
+    const router = useRouter();
     const pathname = usePathname();
 
     const routes = data.map((route) => ({
@@ -24,20 +26,22 @@ const MainNav: React.FC<MainNavProps> = ({
 
     return (
         <nav
-            className="h-full flex items-center gap-x-2 group"
+            className="h-full flex items-center gap-x-2 group fixed z-50"
         >
             <Sidebar data={data} />
-            <Link href="/" className="w-auto h-10 px-4 flex items-center justify-center gap-x-2 bg-neutral-200/50 backdrop-blur-md rounded-full hover:opacity-75">
-                <p className="w-full font-medium text-lg uppercase">Maison Anaé</p>
-            </Link>
+            <Button onClick={() => router.push("/")} size="default" variant="icon" className="w-fit font-medium text-lg uppercase">
+                Maison Anaé
+            </Button>
             <div className="hidden lg:flex items-center bg-neutral-200/50 backdrop-blur-md rounded-full">
-                {routes.map((route) => (
+                {routes.map((route, index) => (
                     <Link
                         key={route.href}
                         href={route.href}
                         className={cn(
-                            "py-2 px-4 h-10 hidden lg:flex items-center text-sm font-medium uppercase transition-colors text-black",
-                            route.active ? "" : ""
+                            "px-4 py-2 h-10 hidden lg:flex items-center text-sm font-medium uppercase transition-colors text-black hover:opacity-75",
+                            route.active ? "" : "",
+                            // With borders between links
+                            // index !== 0 && "border-l-2 border-neutral-300/75"
                         )}
                     >
                         {route.label}

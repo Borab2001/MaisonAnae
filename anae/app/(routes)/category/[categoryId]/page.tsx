@@ -43,13 +43,13 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                 data={category.billboard}
             />
             <Container>
-                <div className='px-4 sm:px-6 lg:px-8 py-24'>
+                <div className='py-24'>
                     <div className='lg:grid lg:grid-cols-5 lg:gap-x-8'>
                         <MobileFilters
                             sizes={sizes}
                             colors={colors}
                         />
-                        {/* <div className='hidden lg:block'>
+                        <div className='hidden lg:block'>
                             <Filter
                                 valueKey="sizeId"
                                 name="Sizes"
@@ -60,10 +60,10 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                                 name="Colors"
                                 data={colors}
                             />
-                        </div> */}
-                        <div className='mt-6 lg:col-span-4 lg:mt-0'>
+                        </div>
+                        <div className='w-full mt-6 lg:col-span-4 lg:mt-0'>
                             {products.length === 0 && <NoResults />}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                            <div className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                                 {products.map((item) => (
                                     <ProductCard 
                                         key={item.id}

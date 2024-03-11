@@ -2,17 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 
-import CustomButton from "@/components/ui/custom-button";
 import { Menu } from "lucide-react";
-import { Dialog } from "@headlessui/react";
-import IconButton from "@/components/ui/icon-button";
 import Link from "next/link";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Category } from "@/types";
 import { cn } from "@/libs/utils";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Button } from "./ui/button";
+import { Sheet, SheetClose, SheetContent, SheetPortal, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 interface SidebarProps {
     data: Category[];
@@ -21,6 +18,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({
     data
 }) => {
+    const router = useRouter();
     const pathname = usePathname();
 
     const routes = data.map((route) => ({
@@ -45,6 +43,18 @@ const Sidebar: React.FC<SidebarProps> = ({
                             Display the products with the filters you're looking for.
                         </SheetDescription>
                     </SheetHeader> */}
+                    {/* <div className="relative left-0 top-0 flex items-center gap-x-2">
+                        <SheetTrigger asChild>
+                            <Button variant="icon" size="icon">
+                                <Menu size={20} />
+                            </Button>
+                        </SheetTrigger>
+                        <SheetClose asChild>
+                            <Button onClick={() => router.push("/")} size="default" variant="icon" className="w-fit font-medium text-lg uppercase">
+                                Maison Anaé
+                            </Button>
+                        </SheetClose>
+                    </div> */}
 
                     {/* Render the links */}
                     {routes.map((route) => (
