@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "./ui/button";
 import useCart from "@/hooks/use-cart";
+import SearchBar from "@/components/ui/search-bar";
 
 const NavbarActions = () => {
 
-    //local storage
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -25,6 +25,7 @@ const NavbarActions = () => {
 
     return (
         <div className="ml-auto flex flex-1 items-center justify-end gap-x-4">
+            <SearchBar items={[]} />
             <Button variant="icon" size="icon" onClick={() => router.push("/cart")} className="relative">
                 <ShoppingBag 
                     size={20}

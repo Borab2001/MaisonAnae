@@ -46,23 +46,20 @@ export default function SearchBar({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          variant="outline"
-          size="sm"
+          variant="icon"
+          size="icon"
           role="combobox"
           aria-expanded={open}
           aria-label="Search product"
-          className={cn("w-[200px] justify-between", className)}
         >
-          <Search className="mr-2 h-4 w-4" />
-          <p className="">Search...</p>
-          <div></div>
+          <Search size={20} />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
-        <Command className="bg-white">
+      <PopoverContent className="bg-neutral-200/75 backdrop-blur-md w-screen h-screen -translate-y-[56px] -z-1 border-none rounded-none text-black shadow-none flex items-center justify-center m-0 p-4 sm:p-6 lg:p-8">
+        <Command className="w-full max-w-[448px] bg-transparent pt-12">
           <CommandList>
-            <CommandInput placeholder="Search item..." />
-            <CommandEmpty>Not found.</CommandEmpty>
+            <CommandInput placeholder="Search product" />
+            <CommandEmpty>Oops, product not found...</CommandEmpty>
             <CommandGroup>
               {displayedItems.map((product) => (
                 <CommandItem
