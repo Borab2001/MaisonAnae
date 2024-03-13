@@ -1,15 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
-import { Product } from "@/types"
 import { useParams, useRouter } from "next/navigation";
-import Button from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { cn } from "@/lib/utils";
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
-import { Search } from 'lucide-react';
 import Image from "next/image";
+
+import { Check, Search } from "lucide-react";
+import { Product } from "@/types"
+import { cn } from "@/lib/utils";
+
+import { Button } from "./button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from "@/components/ui/command";
 
 type PopoverTriggerProps = React.ComponentPropsWithRef<typeof PopoverTrigger>
 
@@ -17,7 +18,7 @@ interface ProductSearchProps extends PopoverTriggerProps {
     items: Product[];
 }
 
-export default function ProductSearch({
+export default function SearchBar({
     className,
     items = []
 }: ProductSearchProps) {
