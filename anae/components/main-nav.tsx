@@ -26,7 +26,7 @@ const MainNav: React.FC<MainNavProps> = ({
 
     return (
         <nav
-            className="h-full flex items-center gap-x-2 group fixed z-50"
+            className="h-full flex items-center gap-x-2 md:gap-x-4 group"
         >
             <Sidebar data={data} />
             <Button onClick={() => router.push("/")} size="default" variant="icon" className="w-fit font-medium text-lg uppercase">

@@ -13,7 +13,7 @@ const Navbar = async () => {
     return (
         <div className="bg-transparent w-full fixed top-0 z-40">
             <Container>
-                <div className="relative flex h-16 items-center">
+                <div className="relative flex h-16 items-center gap-x-2 md:gap-x-4">
                     <MainNav data={categories}/>
                     <NavbarActions />
                 </div>

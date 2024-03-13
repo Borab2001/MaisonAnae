@@ -24,7 +24,7 @@ const NavbarActions = () => {
     }
 
     return (
-        <div className="ml-auto flex flex-1 items-center justify-end gap-x-4">
+        <div className="ml-auto flex flex-1 items-center justify-end gap-x-2 md:gap-x-4">
             <SearchBar items={[]} />
             <Button variant="icon" size="icon" onClick={() => router.push("/cart")} className="relative">
                 <ShoppingBag 
