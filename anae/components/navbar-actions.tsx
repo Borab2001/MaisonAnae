@@ -4,11 +4,18 @@ import { ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import useCart from "@/hooks/use-cart";
 import SearchBar from "@/components/ui/search-bar";
+import { Product } from "@/types";
 
-const NavbarActions = () => {
+interface NavbarActionsProps {
+    items: Product[];
+}
+
+const NavbarActions: React.FC<NavbarActionsProps> =  ({
+    items
+}) => {
 
     const [isMounted, setIsMounted] = useState(false);
 
@@ -25,7 +32,7 @@ const NavbarActions = () => {
 
     return (
         <div className="ml-auto flex flex-1 items-center justify-end gap-x-2 md:gap-x-4">
-            <SearchBar items={[]} />
+            <SearchBar items={items} />
             <Button variant="icon" size="icon" onClick={() => router.push("/cart")} className="relative">
                 <ShoppingBag 
                     size={20}
