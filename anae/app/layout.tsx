@@ -26,7 +26,7 @@ export default function RootLayout({
 			<ModalProvider />
 			<ToastProvider />
 			<Navbar />
-			<div className="mt-16">
+			<div className="">
 				{children}
 			</div>
 			<Footer />
