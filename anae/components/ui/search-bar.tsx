@@ -43,51 +43,51 @@ export default function SearchBar({
     }
 
     return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="icon"
-          size="icon"
-          role="combobox"
-          aria-expanded={open}
-          aria-label="Search product"
-        >
-          <Search size={20} />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="bg-neutral-200/75 backdrop-blur-md w-screen h-screen -translate-y-[56px] -z-1 border-none rounded-none text-black shadow-none flex items-center justify-center m-0 p-4 sm:p-6 lg:p-8">
-        <Command className="w-full max-w-[448px] bg-transparent pt-12">
-          <CommandList>
-            <CommandInput placeholder="Search product" />
-            <CommandEmpty>Oops, product not found...</CommandEmpty>
-            <CommandGroup>
-              {displayedItems.map((product) => (
-                <CommandItem
-                  key={product.value}
-                  onSelect={() => onProductSelect(product)}
-                  className="text-sm"
-                >
-                   <Image src={product?.images?.[0]?.url} alt="Product image" width={50} height={50} className="mr-2" />
-                  {product.label}
-                  <Check
-                    className={cn(
-                      "ml-auto h-4 w-4",
-                      currentProduct?.value === product.value
-                        ? "opacity-100"
-                        : "opacity-0"
-                    )}
-                  />
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-          <CommandSeparator />
-          <CommandList>
-            <CommandGroup>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+		<Popover open={open} onOpenChange={setOpen}>
+			<PopoverTrigger asChild>
+				<Button
+				variant="icon"
+				size="icon"
+				role="combobox"
+				aria-expanded={open}
+				aria-label="Search product"
+				>
+				<Search size={20} />
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className="bg-neutral-200/75 backdrop-blur-md w-screen h-screen -translate-y-[56px] -z-1 border-none rounded-none text-black shadow-none flex items-center justify-center m-0 p-4 sm:p-6 lg:p-8">
+				<Command className="w-full max-w-[448px] bg-transparent pt-12">
+					<CommandList>
+						<CommandInput placeholder="Search product" />
+						<CommandEmpty>Oops, product not found...</CommandEmpty>
+						<CommandGroup>
+							{displayedItems.map((product) => (
+								<CommandItem
+									key={product.value}
+									onSelect={() => onProductSelect(product)}
+									className="text-sm"
+								>
+									<Image src={product?.images?.[0]?.url} alt="Product image" width={50} height={50} className="mr-2" />
+									{product.label}
+									<Check
+										className={cn(
+										"ml-auto h-4 w-4",
+										currentProduct?.value === product.value
+											? "opacity-100"
+											: "opacity-0"
+										)}
+									/>
+								</CommandItem>
+							))}
+						</CommandGroup>
+					</CommandList>
+					<CommandSeparator />
+					<CommandList>
+						<CommandGroup>
+						</CommandGroup>
+					</CommandList>
+				</Command>
+			</PopoverContent>
+		</Popover>
     );
 };
