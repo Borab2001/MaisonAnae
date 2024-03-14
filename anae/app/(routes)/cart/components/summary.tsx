@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
 
-import CustomButton from "@/components/ui/custom-button";
+import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
+
 import { LoaderCircle } from "lucide-react";
 
 
@@ -55,20 +56,22 @@ const Summary = () => {
                     <Currency value={totalPrice} />
                 </div>
             </div>
-            <CustomButton
+            <Button
+                variant="default"
+                size="lg"
                 disabled={items.length === 0}
                 onClick={onCheckout}
                 className="w-full mt-6 rounded-md uppercase font-medium"
             >
                 {loading ? (
-                    <div className='flex justify-center cursor-wait space-x-2'>
+                    <div className='flex justify-center items-center cursor-wait space-x-2'>
                         <LoaderCircle className='w-6 h-6 animate-spin' />
                         <p>Loading</p>
                     </div>
                 ) : "Checkout"}
-            </CustomButton>
+            </Button>
         </div>
     );
 }
- <LoaderCircle />
+
 export default Summary;
