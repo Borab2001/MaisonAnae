@@ -35,11 +35,11 @@ const Gallery: React.FC<GalleryProps> = ({
     }, [api])
 
     return (
-        <Carousel setApi={setApi} orientation="horizontal" className="block h-full w-full max-w-full lg:max-w-[50%] mb-16">
+        <Carousel setApi={setApi} orientation="horizontal" className="block h-image-full w-full max-w-full lg:h-screen lg:max-w-[50%] mb-16">
             <CarouselContent className="w-full h-full">
                 {images.map((image) => (
                     <CarouselItem 
-                        className="w-full h-image-full lg:h-screen bg-cover bg-center"
+                        className="w-full h-full bg-cover bg-center"
                         key={image.id}
                         style={{ backgroundImage: `url(${image.url})` }}
                     >
