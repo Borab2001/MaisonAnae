@@ -18,7 +18,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     if (showDescription) {
         // Return view with description and composition
         return (
-            <div className="w-full h-auto">
+            <div className="w-full h-auto p-4 bg-neutral-200/75 backdrop-blur-md rounded-md">
                 <div className="flex flex-col gap-y-6">
                     <div className="flex flex-col items-start gap-x-4">
                         <h3 className="font-semibold text-black">Description:</h3>
@@ -38,7 +38,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     }
 
     return (
-        <div className="w-full h-auto">
+        <div className="w-full h-auto p-4 bg-neutral-200/75 backdrop-blur-md rounded-md">
             <div className="flex items-center gap-x-4">
                 <h3 className="font-medium text-neutral-500 mb-2">
                     {data?.category?.name}

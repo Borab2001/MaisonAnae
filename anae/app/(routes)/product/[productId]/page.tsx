@@ -29,21 +29,24 @@ const ProductPage: React.FC<ProductPageProps> = async ({
 
     return (
         <div className="bg-white">
-                <div className="">
+                <div className="mb-12">
                     <div className="h-image-full pb-4 lg:pb-0 flex flex-col lg:flex-row items-center">
                         {/* Gallery */}
                         <Gallery images={product.images} />
-                        <div className="h-auto lg:h-image-full flex flex-column justify-center items-center sticky w-full max-w-[472px] mx-auto top-16 bottom-0 z-10">
+                        <div className="h-auto lg:h-image-full flex flex-col justify-end gap-4 items-center sticky w-full max-w-[504px] mx-auto top-16 bottom-0 z-10">
                             {/* Product Info */}
                             <ProductInfo data={product} />
+                            <ProductInfo data={product} showDescription />
                         </div>
                     </div>
                     <Container>
-                        <div className="">
+                        {/* <div className="mt-12">
                             <ProductInfo data={product} showDescription />
                         </div>
-                        <hr className="mt-24 mb-10" />
-                        <ProductList title="Related Items" items={suggestedProducts} />
+                        <hr className="mt-24 mb-10" /> */}
+                        <div className="mt-12">
+                            <ProductList title="Related Items" items={suggestedProducts} />
+                        </div>
                     </Container>
                 </div>
             
