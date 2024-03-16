@@ -47,7 +47,7 @@ const TabbedGallery: React.FC<TabbedGalleryProps> = ({
                     ))}
                 </CarouselContent>
             </Carousel>
-            <div className="fixed z-10 bottom-8 left-8 flex flex-col items-center justify-center gap-2 py-2">
+            <div className="absolute z-10 bottom-8 left-8 flex flex-col items-center justify-center gap-2 py-2">
                 {images.map((_, index) => (
                     <button
                         key={index}
