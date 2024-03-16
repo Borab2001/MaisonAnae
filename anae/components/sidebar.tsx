@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Menu } from "lucide-react";
+import { Menu, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 import { usePathname, useRouter } from "next/navigation";
@@ -43,18 +43,27 @@ const Sidebar: React.FC<SidebarProps> = ({
                             Display the products with the filters you're looking for.
                         </SheetDescription>
                     </SheetHeader> */}
-                    {/* <div className="relative left-0 top-0 flex items-center gap-x-2">
+                    <div className="relative left-0 -top-3 flex items-center gap-x-2 md:gap-x-4 mb-2">
                         <SheetTrigger asChild>
-                            <Button variant="icon" size="icon">
+                            <Button 
+                                className="bg-transparent backdrop-blur-none"
+                                variant="icon" 
+                                size="icon"
+                            >
                                 <Menu size={20} />
                             </Button>
                         </SheetTrigger>
                         <SheetClose asChild>
-                            <Button onClick={() => router.push("/")} size="default" variant="icon" className="w-fit font-medium text-lg uppercase">
+                            <Button 
+                                onClick={() => router.push("/")} 
+                                className="w-fit font-medium text-lg uppercase bg-transparent backdrop-blur-none"
+                                size="default" 
+                                variant="icon"
+                            >
                                 Maison Anaé
                             </Button>
                         </SheetClose>
-                    </div> */}
+                    </div>
 
                     {/* Render the links */}
                     {routes.map((route) => (
@@ -63,11 +72,12 @@ const Sidebar: React.FC<SidebarProps> = ({
                                 href={route.href}
                                 onClick={() => {}}
                                 className={cn(
-                                    "py-2 px-2 block text-sm font-medium uppercase transition-colors text-black",
+                                    "flex justify-between items-center py-2.5 px-2 text-lg font-medium uppercase transition-colors text-black",
                                     route.active ? "underline" : "" // Example active class styling
                                 )}
                             >
                                 {route.label}
+                                <ChevronRight />
                             </Link>
                         </SheetClose>
                     ))}
