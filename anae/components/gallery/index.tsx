@@ -16,7 +16,7 @@ const Gallery: React.FC<GalleryProps> = ({
     const [api, setApi] = React.useState<CarouselApi>()
 
     return (
-        <Carousel setApi={setApi} orientation="horizontal" className="block h-image-full w-full max-w-full lg:h-screen lg:max-w-[50%] mb-16">
+        <Carousel setApi={setApi} orientation="horizontal" className="lg:hidden h-image-full w-full max-w-full lg:h-screen lg:max-w-[50%] mb-16">
             <CarouselContent className="w-full h-full">
                 {images.map((image) => (
                     <CarouselItem 

@@ -2,8 +2,10 @@ import ProductList from "@/components/product-list";
 import getProduct from "@/actions/get-product";
 import getProducts from "@/actions/get-products";
 import Container from "@/components/ui/container";
-import Gallery from "@/components/gallery";
 import ProductInfo from "@/components/product-info";
+
+import Gallery from "@/components/gallery";
+import TabbedGallery from "@/components/gallery/tabbed-gallery";
 
 export const revalidate = 0;
 
@@ -32,6 +34,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                 <div className="">
                     <div className="pb-4 lg:pb-0 flex flex-col lg:flex-row items-center">
                         {/* Gallery */}
+                        <TabbedGallery images={product.images} />
                         <Gallery images={product.images} />
                         <div className="h-auto flex flex-col justify-end gap-4 items-center w-full max-w-full mx-auto px-4 sm:px-6 lg:px-8">
                             {/* Product Info */}
