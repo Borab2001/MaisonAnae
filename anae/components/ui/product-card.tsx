@@ -51,7 +51,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 />
 
                 {/* Buttons  appearing on hover for quick actions */}
-                <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
+                {/* <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
                     <div className="flex gap-x-6 justify-center">
                         <IconButton 
                             onClick={onPreview}
@@ -62,7 +62,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                             icon={<ShoppingBag size={20} className="text-gray-600" />}
                         />
                     </div>
-                </div>
+                </div> */}
             </div>
             {/* Product Description */}
             <div>
