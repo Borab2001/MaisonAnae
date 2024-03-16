@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { Expand, ShoppingBag } from "lucide-react";
+// import { Expand, ShoppingBag } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { MouseEventHandler } from "react";
+// import { MouseEventHandler } from "react";
 
 import { Product } from "@/types";
-import IconButton from "@/components/ui/icon-button";
+// import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
-import usePreviewModal from "@/hooks/use-preview-modal";
-import useCart from "@/hooks/use-cart";
+// import usePreviewModal from "@/hooks/use-preview-modal";
+// import useCart from "@/hooks/use-cart";
 
 interface ProductCardProps {
     data: Product;
@@ -19,25 +19,25 @@ const ProductCard: React.FC<ProductCardProps> = ({
     data
 }) => {
     
-    const cart = useCart();
-    const previewModal = usePreviewModal();
+    // const cart = useCart();
+    // const previewModal = usePreviewModal();
     const router = useRouter();
 
     const handleClick = () => {
         router.push(`/product/${data?.id}`);
     }
 
-    const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
-        event.stopPropagation();
+    // const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
+    //     event.stopPropagation();
 
-        previewModal.onOpen(data);
-    }
+    //     previewModal.onOpen(data);
+    // }
 
-    const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
-        event.stopPropagation();
+    // const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    //     event.stopPropagation();
 
-        cart.addItem(data);
-    }
+    //     cart.addItem(data);
+    // }
 
     return (
         <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl space-y-4 mb-6">
