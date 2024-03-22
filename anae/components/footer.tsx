@@ -22,20 +22,45 @@ const Footer = () => {
         }
     ];
 
+    const commitments = [
+        {
+            name: 'Main Objectives',
+            url: '/main-objectives',
+        },
+        {
+            name: 'Situation',
+            url: '/situation',
+        },
+        {
+            name: 'Partner',
+            url: '/partner',
+        },
+        {
+            name: 'Be Circular',
+            url: '/be-circular',
+        },
+        {
+            name: 'Raw Materials',
+            url: '/raw-materials',
+        },
+        {
+            name: 'Certifications',
+            url: '/certifications',
+        }
+    ];
+
     return (
         <footer className="bg-gray-50 px-4 sm:px-6 lg:px-8">
             <div className="text-3xl text-black mx-auto py-10 text-center">
                 Maison Anaé
             </div>
-            <div className="mx-auto py-10">
-                <p className="text-black font-medium uppercase mb-4">Footer Section Titles</p>
-                <ul>
-                    <li>
-                        <a href="#" className="text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
-                            Footer Section list
-                        </a>
-                    </li>
-                </ul>
+            <div className="mx-auto py-10 flex flex-col gap-y-2">
+                <p className="text-black font-medium uppercase mb-4">Our Commitments</p>
+                {commitments.map((commitment, index) => (
+                    <Link key={index} href={commitment.url} className="text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
+                        {commitment.name}
+                    </Link>
+                ))}
             </div>
             <div className="flex flex-row justify-between items-center mx-auto py-10 border-t border-neutral-700 text-neutral-500">
                 &copy; {currentYear} Maison Anaé
