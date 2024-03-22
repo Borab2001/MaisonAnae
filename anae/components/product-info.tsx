@@ -2,7 +2,8 @@
 
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import Quantity from "@/components/ui/quantity";
 
 import { MouseEventHandler } from "react";
 import useCart from "@/hooks/use-cart";
@@ -61,7 +62,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
             </div>
             <hr className="my-4" />
             <div className="flex flex-col gap-y-6">
-                <div className="flex items-center gap-x-4">
+                <div className="flex items-center gap-x-4 mb-10">
                     <h3 className="font-semibold text-black">Size:</h3>
                     {/* <div>
                         {data?.size?.value}
@@ -80,8 +81,11 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                     </div>
                     <div className="h-6 w-6 rounded-full border border-gray-600" style={{ backgroundColor: data?.color?.value }} />
                 </div>
+                <div className="flex items-center gap-x-4">
+                    {/* <Quantity /> */}
+                </div>
             </div>
-            <div className="mt-10 flex flex-col items-center gap-x-3 sticky lg:block bottom-0 z-10">
+            <div className="flex flex-col items-center gap-x-3 sticky lg:block bottom-0 z-10">
                 <Button 
                     variant="default" 
                     size="lg"
