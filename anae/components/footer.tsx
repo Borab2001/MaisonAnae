@@ -32,8 +32,8 @@ const Footer = () => {
             url: '/situation',
         },
         {
-            name: 'Partner',
-            url: '/partner',
+            name: 'Partners',
+            url: '/partners',
         },
         {
             name: 'Be Circular',
@@ -54,13 +54,42 @@ const Footer = () => {
             <div className="text-3xl text-black mx-auto py-10 text-center">
                 Maison Anaé
             </div>
-            <div className="mx-auto py-10 flex flex-col gap-y-2">
-                <p className="text-black font-medium uppercase mb-4">Our Commitments</p>
-                {commitments.map((commitment, index) => (
-                    <Link key={index} href={commitment.url} className="text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
-                        {commitment.name}
-                    </Link>
-                ))}
+            <div className="mx-auto py-10 grid grid-cols-2 lg:grid-cols-4 gap-8 w-full justify-between">
+                <div className="w-fit flex flex-col gap-y-2">
+                    <p className="w-max text-black font-medium uppercase mb-4">About Us</p>
+                    {commitments.map((commitment, index) => (
+                        <Link key={index} href={commitment.url} className="w-fit text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
+                            {commitment.name}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="w-fit flex flex-col gap-y-2">
+                    <p className="w-max text-black font-medium uppercase mb-4">Anaé's World</p>
+                    {commitments.map((commitment, index) => (
+                        <Link key={index} href={commitment.url} className="w-fit text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
+                            {commitment.name}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="w-fit flex flex-col gap-y-2">
+                    <p className="w-max text-black font-medium uppercase mb-4">Collections</p>
+                    {commitments.map((commitment, index) => (
+                        <Link key={index} href={commitment.url} className="w-fit text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
+                            {commitment.name}
+                        </Link>
+                    ))}
+                </div>
+
+                <div className="w-fit flex flex-col gap-y-2">
+                    <p className="w-max text-black font-medium uppercase mb-4">Our Commitments</p>
+                    {commitments.map((commitment, index) => (
+                        <Link key={index} href={commitment.url} className="w-fit text-sm uppercase text-neutral-500 mb-2 hover:text-black transition">
+                            {commitment.name}
+                        </Link>
+                    ))}
+                </div>
             </div>
             <div className="flex flex-row justify-between items-center mx-auto py-10 border-t border-neutral-700 text-neutral-500">
                 &copy; {currentYear} Maison Anaé
