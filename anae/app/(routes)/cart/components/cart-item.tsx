@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Toast } from "react-hot-toast";
+// import { Toast } from "react-hot-toast";
 import { Trash } from "lucide-react";
 
 import IconButton from "@/components/ui/icon-button";
@@ -9,6 +9,7 @@ import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
 import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/use-toast";
 
 interface CartItemProps {
     data: Product;
@@ -23,6 +24,10 @@ const CartItem: React.FC<CartItemProps> = ({
     
     const onRemove = () => {
         cart.removeItem(data.id);
+        toast({
+            title: "Cart Updated",
+            description: "Item removed from cart successfully.",
+        });
     }
 
     const handleClick = () => {
@@ -41,7 +46,7 @@ const CartItem: React.FC<CartItemProps> = ({
                 />
             </div>
             <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-                <div className="absolute right-0 top-0">
+                <div className="absolute z-10 right-0 top-0">
                     <IconButton 
                         onClick={onRemove} 
                         classname="bg-white text-gray-400 border-gray-400 hover:text-red-500 hover:border-red-500 rounded-md shadow-none" 

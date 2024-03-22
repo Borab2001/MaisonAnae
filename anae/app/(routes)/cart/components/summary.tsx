@@ -3,7 +3,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
+import { toast } from "@/components/ui/use-toast";
 
 import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
@@ -21,12 +22,21 @@ const Summary = () => {
 
     useEffect(() => {
         if (searchParams.get("successful")) {
-            toast.success("Payment successful");
+            // toast.success("Payment successful");
+            toast({
+                title: "Payment successful",
+                description: "You will be redirected to your order confirmation.",
+            });
             removeAll();
         }
 
         if (searchParams.get("cancelled")) {
-            toast.error("Payment unsuccessful");
+            // toast.error("Payment unsuccessful");
+            toast({
+                title: "Payment unsucessful",
+                description: "There has been an issue with your payment. Please try again.",
+                variant: "destructive",
+            });
         }
     }, [searchParams, removeAll]);
 

@@ -2,7 +2,8 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 import { Product } from "@/types";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
+import { toast } from "@/components/ui/use-toast";
 
 export interface CartOrder extends Product {
     orderQuantity: number;
@@ -27,23 +28,43 @@ const useCart = create(
                 if (availableStock >= data.orderQuantity) {
                     existingItem.orderQuantity += data.orderQuantity;
                     set({ items: [...currentItems] });
-                    toast.success(`Added ${data.orderQuantity} to the existing product`);
+                    // toast.success(`Added ${data.orderQuantity} to the existing product`);
+                    toast({
+                        title: "Cart updated",
+                        description: `Added ${data.orderQuantity} to the existing product.`,
+                    });
                 } else if (availableStock > 0) {
                     existingItem.orderQuantity += availableStock;
                     set({ items: [...currentItems] });
-                    toast.success(`Added ${availableStock} to the existing product. Maximum available stock reached`);
+                    // toast.success(`Added ${availableStock} to the existing product. Maximum available stock reached`);
+                    toast({
+                        title: "Cart updated",
+                        description: `Added ${availableStock} to the existing product. Maximum available stock reached`,                    });
                 } else {
-                    toast.error ("All available quantity already in cart")
+                    // toast.error ("All available quantity already in cart")
+                    toast({
+                        title: "Cart update failed",
+                        description: "All available quantity already in cart",
+                        variant: "destructive",
+                    });
                 }
             } else {
                 set({ items: [...currentItems, data] });
-                toast.success("Item added to cart");
+                // toast.success("Item added to cart");
+                toast({
+                    title: "Cart updated",
+                    description: "Item added to cart successfully.",
+                });
             }
         },
 
         removeItem: (id: string) => {
             set({ items: [...get().items.filter((item) => item.id !== id)] });
-            toast.success("Item removed from cart")
+            // toast.success("Item removed from cart")
+            toast({
+                title: "Cart updated",
+                description: "Item removed from cart succesfully.",
+            });
         },
 
         removeAll: () => set({ items: [] }),
