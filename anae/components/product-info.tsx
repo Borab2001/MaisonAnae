@@ -1,10 +1,11 @@
 "use client";
 
-// import { ShoppingBag } from "lucide-react";
-
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
 import { Button } from "./ui/button";
+
+import { MouseEventHandler } from "react";
+import useCart from "@/hooks/use-cart";
 
 interface ProductInfoProps {
     data: Product;
@@ -15,6 +16,14 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     data,
     showDescription = false,
 }) => {
+    const cart = useCart();
+
+    const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+
+        cart.addItem(data);
+    }
+
     if (showDescription) {
         // Return view with description and composition
         return (
@@ -77,6 +86,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                     variant="default" 
                     size="lg"
                     className="w-full"
+                    onClick={onAddToCart}
                 >
                     Add to cart
                 </Button>
