@@ -1,7 +1,7 @@
 "use client";
 
 import usePreviewModal from "@/hooks/use-preview-modal";
-import Modal from "@/components/ui/modal";
+import Modal from "@/components/modals/modal";
 import Gallery from "@/components/gallery";
 import ProductInfo from "@/components/product-info";
 
