@@ -25,7 +25,6 @@ export default function RootLayout({
     <html lang="en">
 		<body className={font.className}>
 			<ClientOnly>
-				<ModalProvider />
 				<Toaster />
 				<Navbar />
 			</ClientOnly>
@@ -33,6 +32,7 @@ export default function RootLayout({
 				{children}
 			</div>
 			<ClientOnly>
+				<ModalProvider />
 				<Footer />
 			</ClientOnly>
 		</body>
