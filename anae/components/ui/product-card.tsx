@@ -66,7 +66,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
             {/* Product Description */}
             <div>
-                <p className="text-lg font-medium uppercase">
+                <p className="text-lg font-medium uppercase truncate">
                     {data.name}
                 </p>
                 <p className="text-sm text-gray-500 capitalize">
