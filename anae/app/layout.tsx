@@ -4,7 +4,6 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import ModalProvider from '@/providers/modal-provider'
-// import { ToastProvider } from '@/providers/toast-provider'
 import { Toaster } from '@/components/ui/toaster'
 
 import './globals.css'
@@ -27,7 +26,6 @@ export default function RootLayout({
 		<body className={font.className}>
 			<ClientOnly>
 				<ModalProvider />
-				{/* <ToastProvider /> */}
 				<Toaster />
 				<Navbar />
 			</ClientOnly>
