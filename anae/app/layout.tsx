@@ -8,6 +8,7 @@ import ModalProvider from '@/providers/modal-provider'
 import { Toaster } from '@/components/ui/toaster'
 
 import './globals.css'
+import ClientOnly from '@/components/client-only'
 
 const font = Inter({ subsets: ['latin'] })
 
@@ -24,14 +25,18 @@ export default function RootLayout({
   return (
     <html lang="en">
 		<body className={font.className}>
-			<ModalProvider />
-			{/* <ToastProvider /> */}
-			<Toaster />
-			<Navbar />
+			<ClientOnly>
+				<ModalProvider />
+				{/* <ToastProvider /> */}
+				<Toaster />
+				<Navbar />
+			</ClientOnly>
 			<div className="">
 				{children}
 			</div>
-			<Footer />
+			<ClientOnly>
+				<Footer />
+			</ClientOnly>
 		</body>
     </html>
   )
