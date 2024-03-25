@@ -7,9 +7,10 @@ import useRegisterModal from '@/hooks/use-register-modal';
 import { FcGoogle } from 'react-icons/fc';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { DropdownMenuItem } from '@/components/ui/dropdown-menu';
+import { User } from 'lucide-react';
 
 
 const RegisterModal = () => {
@@ -49,7 +50,11 @@ const RegisterModal = () => {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline">Sign Up</Button>
+                <DropdownMenuItem>
+                    <User className="mr-2 h-4 w-4" />
+                    <span>Sign Up</span>
+                    {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
+                </DropdownMenuItem>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

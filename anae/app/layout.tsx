@@ -32,7 +32,7 @@ export default function RootLayout({
 				{children}
 			</div>
 			<ClientOnly>
-				<ModalProvider />
+				{/* <ModalProvider /> */}
 				<Footer />
 			</ClientOnly>
 		</body>

@@ -19,7 +19,7 @@ const ModalProvider = () => {
     return (
         <>
             <PreviewModal />
-            <RegisterModal />
+            {/* <RegisterModal /> */}
         </>
     );
 }
