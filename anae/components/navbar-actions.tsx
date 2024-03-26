@@ -59,15 +59,30 @@ const NavbarActions: React.FC<NavbarActionsProps> =  ({
                 <DropdownMenuContent className="w-56 mr-4 sm:mr-6 lg:mr-8 mt-2 bg-gray-100/50 backdrop-blur-md shadow-none border-neutral-100">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator className="border-neutral-200" />
+                    
                     <DropdownMenuGroup>
                         <DropdownMenuItem onClick={() => router.push("/profile")}>
                             <User className="mr-2 h-4 w-4" />
                             <span>Profile</span>
                             {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
                         </DropdownMenuItem>
+                        
                         <RegisterModal />
                         <LoginModal />
-                    </DropdownMenuGroup>    
+
+                        <DropdownMenuItem onClick={() => router.push("/favorites")}>
+                            <Heart className="mr-2 h-4 w-4" />
+                            <span>Favorites</span>
+                        {/* <DropdownMenuShortcut>⌘F</DropdownMenuShortcut> */}
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem onClick={() => router.push("/settings")}>
+                            <Settings className="mr-2 h-4 w-4" />
+                            <span>Settings</span>
+                            {/* <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut> */}
+                        </DropdownMenuItem>
+                    </DropdownMenuGroup>
+
                     <DropdownMenuSeparator className="border-neutral-200" />
                     <DropdownMenuItem>
                         <LogOut className="mr-2 h-4 w-4" />
