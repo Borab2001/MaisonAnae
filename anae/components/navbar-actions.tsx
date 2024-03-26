@@ -4,13 +4,15 @@ import { Heart, LogOut, Settings, ShoppingBag, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import useCart from "@/hooks/use-cart";
-import SearchBar from "@/components/ui/search-bar";
 import { Product } from "@/types";
+
+import { Button } from "@/components/ui/button";
+import SearchBar from "@/components/ui/search-bar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import RegisterModal from "@/components/modals/register-modal";
+import LoginModal from "@/components/modals/login-modal";
 
 interface NavbarActionsProps {
     items: Product[];
@@ -58,26 +60,14 @@ const NavbarActions: React.FC<NavbarActionsProps> =  ({
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator className="border-neutral-200" />
                     <DropdownMenuGroup>
-                        <DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => router.push("/profile")}>
                             <User className="mr-2 h-4 w-4" />
                             <span>Profile</span>
                             {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
                         </DropdownMenuItem>
-                        
                         <RegisterModal />
-                        
-                        <DropdownMenuItem>
-                            <Heart className="mr-2 h-4 w-4" />
-                            <span>Favorites</span>
-                            {/* <DropdownMenuShortcut>⌘F</DropdownMenuShortcut> */}
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <Settings className="mr-2 h-4 w-4" />
-                            <span>Settings</span>
-                            {/* <DropdownMenuShortcut>⌘S</DropdownMenuShortcut> */}
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
-
+                        <LoginModal />
+                    </DropdownMenuGroup>    
                     <DropdownMenuSeparator className="border-neutral-200" />
                     <DropdownMenuItem>
                         <LogOut className="mr-2 h-4 w-4" />

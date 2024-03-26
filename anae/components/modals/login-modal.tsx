@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import useRegisterModal from '@/hooks/use-register-modal';
+import useLoginModal from '@/hooks/use-login-modal';
 import { FcGoogle } from 'react-icons/fc';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -13,31 +13,29 @@ import { DropdownMenu, DropdownMenuGroup, DropdownMenuItem } from '@/components/
 import { User } from 'lucide-react';
 
 
-const RegisterModal = () => {
-    const registerModal = useRegisterModal();
+const LoginModal = () => {
+    const loginModal = useLoginModal();
     const [isLoading, setIsLoading] = useState(false);
 
     const {
-        register,
+        // login,
         handleSubmit,
         formState: {
             errors,
         }
     } = useForm<FieldValues>({
         defaultValues: {
-            name: '',
             email: '',
             password: '',
-            confirmPassword: ''
         }
     });
 
     const onSubmit: SubmitHandler<FieldValues> = (data) => {
         setIsLoading(true);
 
-        axios.post('/api/register', data)
+        axios.post('/api/login', data)
             .then(() => {
-                registerModal.onClose();
+                loginModal.onClose();
             })
             .catch((error) => {
                 console.log(error);
@@ -53,28 +51,20 @@ const RegisterModal = () => {
                 <DialogTrigger asChild>
                     <DropdownMenuItem>
                         <User className="mr-2 h-4 w-4" />
-                        <span>Sign Up</span>
+                        <span>Sign In</span>
                         {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
                     </DropdownMenuItem>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
-                        <DialogTitle>Sign Up</DialogTitle>
+                        <DialogTitle>Sign In</DialogTitle>
                         <DialogDescription>
-                            Create a new account
+                            Login to your existing account
                         </DialogDescription>
                     </DialogHeader>
 
                     <div className="grid gap-4 pt-4">
                         <div className="flex flex-col items-start gap-2">
-                            <Label htmlFor="name">Full Name</Label>
-                            <Input
-                                id="name"
-                                defaultValue=""
-                                className="col-span-3"
-                                placeholder="John Doe"
-                            />
-
                             <Label htmlFor="email" className="mt-2">Email</Label>
                             <Input
                                 id="email"
@@ -91,15 +81,6 @@ const RegisterModal = () => {
                                 className="col-span-3"
                                 placeholder="Password"
                             />
-
-                            <Label htmlFor="confirmPassword" className="mt-2">Confirm Password</Label>
-                            <Input
-                                id="confirmPassword"
-                                type="password"
-                                defaultValue=""
-                                className="col-span-3"
-                                placeholder="Confirm password"
-                            />
                         </div>
                     </div>
                 </DialogContent>
@@ -108,4 +89,4 @@ const RegisterModal = () => {
     );
 }
  
-export default RegisterModal;
+export default LoginModal;
