@@ -10,7 +10,7 @@ import { User } from 'lucide-react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { Button } from '@/components/ui/button';
 
 
@@ -88,7 +88,7 @@ const LoginModal = () => {
                         <Button variant="default" size="lg">
                             Sign In
                         </Button>
-                        <DropdownMenuSeparator />
+                        <hr className='my-1' />
                         <Button variant="outline" size="lg" className="relative">
                             <FcGoogle size="20" className='absolute left-3' />
                             Continue with Google
