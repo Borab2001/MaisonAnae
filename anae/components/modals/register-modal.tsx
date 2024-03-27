@@ -5,13 +5,13 @@ import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from '@/hooks/use-register-modal';
 import { FcGoogle } from 'react-icons/fc';
+import { User } from 'lucide-react';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
-import { User } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 
 
 const RegisterModal = () => {
@@ -109,11 +109,10 @@ const RegisterModal = () => {
                         </Button>
                         <DropdownMenuSeparator />
                         <Button variant="outline" size="lg" className="relative">
-                            <FcGoogle size="20" className='absolute left-4' />
+                            <FcGoogle size="20" className='absolute left-3' />
                             Continue with Google
                         </Button>
                     </div>
-
                 </DialogContent>
             </Dialog>
         </DropdownMenu>

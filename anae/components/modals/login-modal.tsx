@@ -5,12 +5,13 @@ import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useLoginModal from '@/hooks/use-login-modal';
 import { FcGoogle } from 'react-icons/fc';
+import { User } from 'lucide-react';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { DropdownMenu, DropdownMenuGroup, DropdownMenuItem } from '@/components/ui/dropdown-menu';
-import { User } from 'lucide-react';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 
 
 const LoginModal = () => {
@@ -59,11 +60,11 @@ const LoginModal = () => {
                     <DialogHeader>
                         <DialogTitle>Sign In</DialogTitle>
                         <DialogDescription>
-                            Login to your existing account
+                            Log in to your existing account
                         </DialogDescription>
                     </DialogHeader>
 
-                    <div className="grid gap-4 pt-4">
+                    <div className="grid gap-4 py-4">
                         <div className="flex flex-col items-start gap-2">
                             <Label htmlFor="email" className="mt-2">Email</Label>
                             <Input
@@ -82,6 +83,16 @@ const LoginModal = () => {
                                 placeholder="Password"
                             />
                         </div>
+                    </div>
+                    <div className='flex flex-col gap-y-2'>
+                        <Button variant="default" size="lg">
+                            Sign In
+                        </Button>
+                        <DropdownMenuSeparator />
+                        <Button variant="outline" size="lg" className="relative">
+                            <FcGoogle size="20" className='absolute left-3' />
+                            Continue with Google
+                        </Button>
                     </div>
                 </DialogContent>
             </Dialog>
