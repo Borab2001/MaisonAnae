@@ -25,7 +25,7 @@ model User {
   favoriteIds       String[]      @db.ObjectId
 
   accounts          Account[]
-  orders            Order[]
+  // orders            Order[]
 }
 
 model Account {
