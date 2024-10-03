@@ -32,7 +32,7 @@ const MainNav: React.FC<MainNavProps> = ({
             <Button onClick={() => router.push("/")} size="default" variant="icon" className="w-fit font-medium text-lg uppercase">
                 Maison Anaé
             </Button>
-            <div className="hidden lg:flex items-center bg-gray-100/50 backdrop-blur-md rounded-full border border-neutral-100">
+            <div className="hidden lg:flex items-center bg-frosted backdrop-blur-md rounded-full">
                 {routes.map((route, index) => (
                     <Link
                         key={route.href}

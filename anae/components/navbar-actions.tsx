@@ -56,7 +56,7 @@ const NavbarActions: React.FC<NavbarActionsProps> =  ({
                         </Avatar>
                     </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 mr-4 sm:mr-6 lg:mr-8 mt-2 bg-gray-100/50 backdrop-blur-md shadow-none border-neutral-100">
+                <DropdownMenuContent className="w-56 mr-4 sm:mr-6 lg:mr-8 mt-2 bg-frosted backdrop-blur-md shadow-none border-none">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator className="border-neutral-200" />
                     
