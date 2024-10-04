@@ -50,12 +50,12 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="bg-primary px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto py-32 grid grid-rows-3 grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 md:grid-rows-1 md:grid-cols-5 gap-8 w-full justify-between">
-                <div className="col-span-2 sm:col-span-3 md:col-span-2 text-3xl text-white flex flex-col items-start">
+        <footer className="bg-primary px-4 sm:px-6 lg:px-16">
+            <div className="mx-auto pt-24 pb-16 flex flex-col md:flex-row items-start justify-between w-full gap-y-16">
+                <div className="text-3xl text-white flex flex-col items-start">
                     Maison Anaé
                     <p className="text-sm text-neutral-300 mt-2">Sustainable Parisian Fashion</p>
-                    <div className="flex flex-row justify-between items-center gap-x-4 my-6">
+                    <div className="flex flex-row justify-between items-center gap-x-4 mt-6">
                         {socialLinks.map((link, index) => (
                             <Link
                                 key={index}
@@ -70,16 +70,18 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-                {footerSections.map((section, sectionIndex) => (
-                    <div key={sectionIndex} className="w-fit flex flex-col gap-y-2">
-                        <p className="w-max text-white font-medium uppercase mb-4">{section.title}</p>
-                        {section.links.map((link, linkIndex) => (
-                            <Link key={linkIndex} href={link.url} className="w-fit text-sm text-neutral-400 mb-2 hover:text-neutral-200 transition">
-                                {link.name}
-                            </Link>
-                        ))}
-                    </div>
-                ))}
+                <div className="grid grid-rows-2 sm:grid-rows-1 grid-cols-2 sm:grid-cols-3 gap-x-24 md:gap-x-16 lg:gap-x-24 gap-y-10 md:flex md:flex-row">
+                    {footerSections.map((section, sectionIndex) => (
+                        <div key={sectionIndex} className="w-fit flex-0 flex flex-col gap-y-2">
+                            <p className="w-max text-white font-medium uppercase mb-4">{section.title}</p>
+                            {section.links.map((link, linkIndex) => (
+                                <Link key={linkIndex} href={link.url} className="w-fit text-sm text-neutral-400 mb-2 hover:text-neutral-200 transition">
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+                    ))}
+                </div>
             </div>
             <div className="w-full h-[1px] bg-gradient-to-r from-neutral-900 via-neutral-400 to-neutral-900" />
             <div className="flex flex-row text-sm justify-center items-center mx-auto py-10 text-neutral-300">
