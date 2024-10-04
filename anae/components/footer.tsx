@@ -8,17 +8,17 @@ const Footer = () => {
         {
             name: 'Facebook',
             url: 'https://www.facebook.com',
-            icon: <Facebook size={24} />
+            icon: <Facebook size={20} />
         },
         {
             name: 'LinkedIn',
             url: 'https://www.linkedin.com',
-            icon: <Linkedin size={24} />
+            icon: <Linkedin size={20} />
         },
         {
             name: 'Instagram',
             url: 'https://www.instagram.com',
-            icon: <Instagram size={24} />
+            icon: <Instagram size={20} />
         }
     ];
 
@@ -27,8 +27,8 @@ const Footer = () => {
             title: "Anaé's World",
             links: [
                 { name: 'Be Circular', url: '/be-circular' },
-                { name: 'Raw Materials', url: '/raw-materials' },
                 { name: 'Certifications', url: '/certifications' },
+                { name: 'Raw Materials', url: '/raw-materials' },
             ]
         },
         {
@@ -42,9 +42,9 @@ const Footer = () => {
         {
             title: "Support",
             links: [
+                { name: 'Contact Us', url: '/contact-us' },
                 { name: 'Privacy Policy', url: '/privacy-policy' },
                 { name: 'Terms of Use', url: '/terms-of-use' },
-                { name: 'Contact Us', url: '/contact-us' },
             ]
         },
     ]
@@ -60,7 +60,7 @@ const Footer = () => {
                             <Link
                                 key={index}
                                 href={link.url}
-                                className="text-neutral-300 hover:bg-neutral-800 p-1 rounded-md transition"
+                                className="text-neutral-300 bg-neutral-800 hover:bg-primary-foreground hover:text-primary p-2 rounded-md transition"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={link.name}
@@ -81,7 +81,8 @@ const Footer = () => {
                     </div>
                 ))}
             </div>
-            <div className="flex flex-row text-sm justify-center items-center mx-auto py-10 border-t border-neutral-700 text-neutral-300">
+            <div className="w-full h-[1px] bg-gradient-to-r from-neutral-900 via-neutral-400 to-neutral-900" />
+            <div className="flex flex-row text-sm justify-center items-center mx-auto py-10 text-neutral-300">
                 &copy; Groupe BNSB {currentYear}. All rights reserved.
             </div>
         </footer>
