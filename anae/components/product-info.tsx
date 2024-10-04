@@ -22,7 +22,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();
 
-        cart.addItem(data);
+        cart.addItem({ ...data, orderQuantity: 1 });
     }
 
     if (showDescription) {
