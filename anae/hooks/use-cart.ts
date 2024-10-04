@@ -7,6 +7,7 @@ import { toast } from "@/components/ui/use-toast";
 
 export interface CartOrder extends Product {
     orderQuantity: number;
+    quantity: number;
 }
 
 type CartStore = {
@@ -21,8 +22,8 @@ const useCart = create(
         items: [],
         addItem: (data: CartOrder) => {
             const currentItems: CartOrder[] = get().items;
-            const existingItem: CartOrder[] | undefined = currentItems.find((item) => item.id === data.id);
-            const availableStock: number = data.quantity - (existingItem ? existingItem.orderQuantity: 0);
+            const existingItem: CartOrder | undefined = currentItems.find((item) => item.id === data.id);
+            const availableStock: number = data.quantity - (existingItem ? existingItem.orderQuantity : 0);
 
             if (existingItem) {
                 if (availableStock >= data.orderQuantity) {
