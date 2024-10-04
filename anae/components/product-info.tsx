@@ -67,12 +67,15 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                     {/* <div>
                         {data?.size?.value}
                     </div> */}
-                    <Button 
-                        variant="outline"
-                        size="icon"
-                    >
-                        {data?.size?.value}
-                    </Button>
+                    {data?.sizes?.map((size, index) => (
+                        <Button 
+                            key={index}
+                            variant="outline"
+                            size="icon"
+                        >
+                            {size.value}
+                        </Button>
+                    ))}
                 </div>
                 <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Color:</h3>
