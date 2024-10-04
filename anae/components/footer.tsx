@@ -51,8 +51,8 @@ const Footer = () => {
 
     return (
         <footer className="bg-primary px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto py-32 grid grid-cols-2 lg:grid-cols-5 gap-8 w-full justify-between">
-                <div className="col-span-2 text-3xl text-white flex flex-col items-start">
+            <div className="mx-auto py-32 grid grid-rows-3 grid-cols-2 sm:grid-cols-3 sm:grid-rows-2 md:grid-rows-1 md:grid-cols-5 gap-8 w-full justify-between">
+                <div className="col-span-2 sm:col-span-3 md:col-span-2 text-3xl text-white flex flex-col items-start">
                     Maison Anaé
                     <p className="text-sm text-neutral-300 mt-2">Sustainable Parisian Fashion</p>
                     <div className="flex flex-row justify-between items-center gap-x-4 my-6">
