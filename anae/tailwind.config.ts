@@ -80,6 +80,9 @@ const config = {
         'full': '100%',
         '-full': '-100%',
       },
+      fontSize : {
+        billboard: "max(15vw,48px)"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -35,6 +35,18 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
         cart.addItem({ ...data, orderQuantity: 1, quantity: 1 });
     }
 
+    // const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
+    //     event.stopPropagation();
+    
+    //     if (activeSize !== null && sortedSizes) {
+    //         const selectedSize = sortedSizes[activeSize];
+    //         cart.addItem({ ...data, size: selectedSize, orderQuantity: 1, quantity: 1 });
+    //     } else {
+    //         // Gérer le cas où aucune taille n'est sélectionnée
+    //         console.error("Size not selected");
+    //     }
+    // }
+
     if (showDescription) {
         // Return view with description and composition
         return (

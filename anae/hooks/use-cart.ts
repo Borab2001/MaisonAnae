@@ -8,6 +8,7 @@ import { toast } from "@/components/ui/use-toast";
 export interface CartOrder extends Product {
     orderQuantity: number;
     quantity: number;
+    // size: { value: string };
 }
 
 type CartStore = {
@@ -26,29 +27,29 @@ const useCart = create(
             const availableStock: number = data.quantity - (existingItem ? existingItem.orderQuantity : 0);
 
             if (existingItem) {
-                if (availableStock >= data.orderQuantity) {
-                    existingItem.orderQuantity += data.orderQuantity;
-                    set({ items: [...currentItems] });
-                    // toast.success(`Added ${data.orderQuantity} to the existing product`);
-                    toast({
-                        title: "Cart updated",
-                        description: `Added ${data.orderQuantity} to the existing product.`,
-                    });
-                } else if (availableStock > 0) {
-                    existingItem.orderQuantity += availableStock;
-                    set({ items: [...currentItems] });
-                    // toast.success(`Added ${availableStock} to the existing product. Maximum available stock reached`);
-                    toast({
-                        title: "Cart updated",
-                        description: `Added ${availableStock} to the existing product. Maximum available stock reached`,                    });
-                } else {
-                    // toast.error ("All available quantity already in cart")
-                    toast({
-                        title: "Cart update failed",
-                        description: "All available quantity already in cart",
-                        variant: "destructive",
-                    });
-                }
+                // if (availableStock >= data.orderQuantity) {
+                //     existingItem.orderQuantity += data.orderQuantity;
+                //     set({ items: [...currentItems] });
+                //     // toast.success(`Added ${data.orderQuantity} to the existing product`);
+                //     toast({
+                //         title: "Cart updated",
+                //         description: `Added ${data.orderQuantity} to the existing product.`,
+                //     });
+                // } else if (availableStock > 0) {
+                //     existingItem.orderQuantity += availableStock;
+                //     set({ items: [...currentItems] });
+                //     // toast.success(`Added ${availableStock} to the existing product. Maximum available stock reached`);
+                //     toast({
+                //         title: "Cart updated",
+                //         description: `Added ${availableStock} to the existing product. Maximum available stock reached`,                    });
+                // } else {
+                //     // toast.error ("All available quantity already in cart")
+                //     toast({
+                //         title: "Cart update failed",
+                //         description: "All available quantity already in cart",
+                //         variant: "destructive",
+                //     });
+                // }
             } else {
                 set({ items: [...currentItems, data] });
                 // toast.success("Item added to cart");
