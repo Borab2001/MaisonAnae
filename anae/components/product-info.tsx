@@ -19,7 +19,15 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
 }) => {
     const cart = useCart();
     const [activeSize, setActiveSize] = useState<number | null>(null);
+    const sizeOrder = ["XS", "S", "M", "L", "XL"];
 
+    const compareSizes = (a: { value: string }, b: { value: string }) => {
+        return sizeOrder.indexOf(a.value) - sizeOrder.indexOf(b.value);
+    };
+
+    // Sorting the sizes before mapping
+    const sortedSizes = data?.sizes?.slice().sort(compareSizes);
+    console.log(sortedSizes);
 
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();
@@ -64,12 +72,16 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
             </div>
             <hr className="my-4" />
             <div className="flex flex-col gap-y-6">
-                <div className="flex items-center gap-x-4 mb-10">
+                <div className="flex items-center gap-x-4">
+                    <h3 className="font-semibold text-black">Color:</h3>
+                    <div>
+                        {data?.color?.name}
+                    </div>
+                    {/* <div className="h-6 w-6 rounded-full border border-gray-600" style={{ backgroundColor: data?.color?.value }} /> */}
+                </div>
+                <div className="flex items-center gap-x-4">
                     <h3 className="font-semibold text-black">Size:</h3>
-                    {/* <div>
-                        {data?.size?.value}
-                    </div> */}
-                    {data?.sizes?.map((size, index) => (
+                    {sortedSizes?.map((size, index) => (
                         <Button 
                             key={index}
                             variant="size"
@@ -80,13 +92,6 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                             {size.value}
                         </Button>
                     ))}
-                </div>
-                <div className="flex items-center gap-x-4">
-                    <h3 className="font-semibold text-black">Color:</h3>
-                    <div>
-                        {data?.color?.name}
-                    </div>
-                    <div className="h-6 w-6 rounded-full border border-gray-600" style={{ backgroundColor: data?.color?.value }} />
                 </div>
                 <div className="flex items-center gap-x-4">
                     {/* <Quantity /> */}

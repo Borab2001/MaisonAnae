@@ -51,7 +51,7 @@ const NavbarActions: React.FC<NavbarActionsProps> =  ({
                 <DropdownMenuTrigger asChild>
                     <Button variant="icon" size="icon">
                         <Avatar>
-                            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                            <AvatarImage src="https://github.com/shadcn.png" alt="Profile Image" />
                             <AvatarFallback>AÉ</AvatarFallback>
                         </Avatar>
                     </Button>
