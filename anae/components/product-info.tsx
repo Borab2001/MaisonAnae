@@ -5,7 +5,7 @@ import Currency from "@/components/ui/currency";
 import { Button } from "@/components/ui/button";
 import Quantity from "@/components/ui/quantity";
 
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
 import useCart from "@/hooks/use-cart";
 
 interface ProductInfoProps {
@@ -18,6 +18,8 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
     showDescription = false,
 }) => {
     const cart = useCart();
+    const [activeSize, setActiveSize] = useState<number | null>(null);
+
 
     const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation();
@@ -70,8 +72,10 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
                     {data?.sizes?.map((size, index) => (
                         <Button 
                             key={index}
-                            variant="outline"
+                            variant="size"
                             size="icon"
+                            onClick={() => setActiveSize(index)}
+                            className={activeSize === index ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
                         >
                             {size.value}
                         </Button>
