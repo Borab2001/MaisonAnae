@@ -9,10 +9,6 @@ import { Product } from "@/types";
 
 import { Button } from "@/components/ui/button";
 import SearchBar from "@/components/ui/search-bar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import RegisterModal from "@/components/modals/register-modal";
-import LoginModal from "@/components/modals/login-modal";
 
 interface NavbarActionsProps {
     items: Product[];
@@ -47,50 +43,6 @@ const NavbarActions: React.FC<NavbarActionsProps> =  ({
                     {cart.items.length}
                 </span>
             </Button>
-            <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                    <Button variant="icon" size="icon">
-                        <Avatar>
-                            <AvatarImage src="https://github.com/shadcn.png" alt="Profile Image" />
-                            <AvatarFallback>AÉ</AvatarFallback>
-                        </Avatar>
-                    </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56 mr-4 sm:mr-6 lg:mr-8 mt-2 bg-frosted backdrop-blur-md shadow-none border-none">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator className="border-neutral-200" />
-                    
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem onClick={() => router.push("/profile")}>
-                            <User className="mr-2 h-4 w-4" />
-                            <span>Profile</span>
-                            {/* <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut> */}
-                        </DropdownMenuItem>
-                        
-                        <RegisterModal />
-                        <LoginModal />
-
-                        <DropdownMenuItem onClick={() => router.push("/favorites")}>
-                            <Heart className="mr-2 h-4 w-4" />
-                            <span>Favorites</span>
-                        {/* <DropdownMenuShortcut>⌘F</DropdownMenuShortcut> */}
-                        </DropdownMenuItem>
-
-                        <DropdownMenuItem onClick={() => router.push("/settings")}>
-                            <Settings className="mr-2 h-4 w-4" />
-                            <span>Settings</span>
-                            {/* <DropdownMenuShortcut>⇧⌘S</DropdownMenuShortcut> */}
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
-
-                    <DropdownMenuSeparator className="border-neutral-200" />
-                    <DropdownMenuItem>
-                        <LogOut className="mr-2 h-4 w-4" />
-                        <span>Log out</span>
-                        {/* <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut> */}
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
         </div>
     );
 }

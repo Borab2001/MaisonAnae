@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { Color, Size } from "@/types";
 // import CustomButton from "@/components/ui/CustomButton";
 import { Checkbox } from "@/components/ui/checkbox";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 
 interface FilterProps {
     data: (Color | Size)[];

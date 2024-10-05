@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { usePathname, useRouter } from "next/navigation";
 import { Category } from "@/types";
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import { Sheet, SheetClose, SheetContent, SheetPortal, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 

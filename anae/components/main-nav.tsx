@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
-import { cn } from "@/libs/utils";
+import { cn } from "@/lib/utils";
 import { Category } from "@/types";
 import Sidebar from "./sidebar";
 import { Button } from "./ui/button";
