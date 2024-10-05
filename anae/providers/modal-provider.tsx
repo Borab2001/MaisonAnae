@@ -1,6 +1,5 @@
 "use client";
 
-import RegisterModal from "@/components/modals/register-modal";
 import PreviewModal from "@/components/modals/preview-modal";
 import { useEffect, useState } from "react";
 
@@ -19,7 +18,6 @@ const ModalProvider = () => {
     return (
         <>
             <PreviewModal />
-            {/* <RegisterModal /> */}
         </>
     );
 }
