@@ -2,12 +2,21 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+// import { Color, Size } from "@/types";
+import { ListFilter } from 'lucide-react';
+
 import Filter from './filter';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+
 
 interface FilterContainerProps {
     sizes: { id: string; name: string }[];
     colors: { id: string; name: string }[];
     categories: { id: string; name: string }[];
+    // sizes: Size[];
+    // colors: Color[];
+    // categories: Category[];
 }
 
 const FilterContainer: React.FC<FilterContainerProps> = ({ sizes, colors, categories }) => {
@@ -53,18 +62,41 @@ const FilterContainer: React.FC<FilterContainerProps> = ({ sizes, colors, catego
     };
 
     return (
-        <Filter
-            sizes={sizes}
-            colors={colors}
-            categories={categories}
-            selectedSize={selectedSize}
-            selectedColor={selectedColor}
-            selectedCategory={selectedCategory}
-            handleSizeChange={handleSizeChange}
-            handleColorChange={handleColorChange}
-            handleCategoryChange={handleCategoryChange}
-            handleReset={handleReset}
-        />
+        <div className="relative">
+            <Sheet>
+                <SheetTrigger>
+                    <Button variant="ghost" size="default" className="gap-x-2 uppercase">
+                        Filter
+                        <ListFilter size={20} />
+                    </Button>
+                </SheetTrigger>
+
+                <SheetContent side="right">
+                    <SheetHeader>
+                        <SheetTitle>Filters</SheetTitle>
+                        <SheetDescription>
+                            Display the products with the filters you are looking for.
+                        </SheetDescription>
+                    </SheetHeader>
+
+                    {/* Render the filters */}
+                    <div className="py-8">
+                        <Filter
+                            sizes={sizes}
+                            colors={colors}
+                            categories={categories}
+                            selectedSize={selectedSize}
+                            selectedColor={selectedColor}
+                            selectedCategory={selectedCategory}
+                            handleSizeChange={handleSizeChange}
+                            handleColorChange={handleColorChange}
+                            handleCategoryChange={handleCategoryChange}
+                            handleReset={handleReset}
+                        />
+                    </div>
+                </SheetContent>
+            </Sheet>
+        </div>
     );
 };
 
