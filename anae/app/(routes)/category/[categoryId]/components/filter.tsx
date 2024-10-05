@@ -86,8 +86,8 @@ const Filter: React.FC<FilterProps> = ({
                             onCheckChange={(isChecked) => onChange(filter.id, isChecked)}
                         />
                         <label
-                                htmlFor="filter"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            htmlFor="filter"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                             >
                                 {filter.name}
                         </label>

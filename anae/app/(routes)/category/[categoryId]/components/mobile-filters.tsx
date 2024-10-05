@@ -1,7 +1,7 @@
 "use client";
 
 import { Color, Size } from "@/types";
-import { Plus} from "lucide-react";
+import { ListFilter } from "lucide-react";
 
 import Filter from "./filter";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -17,12 +17,12 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
     colors
 }) => {
     return (
-        <div className="relative lg:hidden">
+        <div className="relative">
             <Sheet>
                 <SheetTrigger>
-                    <Button variant="default">
-                        Filters
-                        <Plus size={20} />
+                    <Button variant="ghost" size="default" className="gap-x-2 uppercase">
+                        Filter
+                        <ListFilter size={20} />
                     </Button>
                 </SheetTrigger>
 
@@ -30,7 +30,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
                     <SheetHeader>
                         <SheetTitle>Filters</SheetTitle>
                         <SheetDescription>
-                            Display the products with the filters you're looking for.
+                            Display the products with the filters you are looking for.
                         </SheetDescription>
                     </SheetHeader>
 
