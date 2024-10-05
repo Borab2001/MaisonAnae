@@ -1,7 +1,10 @@
 "use client";
 
+import { Button } from "./ui/button";
+import { SheetClose } from "./ui/sheet";
+
 interface FilterProps {
-    sizes: { id: string; name: string }[];
+    sizes: { id: string; value: string }[];
     colors: { id: string; name: string }[];
     categories: { id: string; name: string }[];
     selectedSize: string | undefined;
@@ -31,13 +34,15 @@ const Filter: React.FC<FilterProps> = ({
                 <h3 className="text-sm font-medium text-gray-700">Sizes</h3>
                 <div className="flex gap-2">
                     {sizes.map((size, index) => (
-                        <button
+                        <Button
                             key={size.id}
+                            variant="size"
+                            size="icon"
                             onClick={() => handleSizeChange(index)}
                             className={selectedSize === size.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
                         >
-                            {size.name}
-                        </button>
+                            {size.value}
+                        </Button>
                     ))}
                 </div>
             </div>
@@ -45,13 +50,15 @@ const Filter: React.FC<FilterProps> = ({
                 <h3 className="text-sm font-medium text-gray-700">Colors</h3>
                 <div className="flex gap-2">
                     {colors.map((color, index) => (
-                        <button
+                        <Button
                             key={color.id}
+                            variant="size"
+                            size="default"
                             onClick={() => handleColorChange(index)}
                             className={selectedColor === color.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
                         >
                             {color.name}
-                        </button>
+                        </Button>
                     ))}
                 </div>
             </div>
@@ -59,19 +66,38 @@ const Filter: React.FC<FilterProps> = ({
                 <h3 className="text-sm font-medium text-gray-700">Categories</h3>
                 <div className="flex gap-2">
                     {categories.map((category, index) => (
-                        <button
+                        <Button
                             key={category.id}
+                            variant="size"
+                            size="icon"
                             onClick={() => handleCategoryChange(index)}
                             className={selectedCategory === category.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
                         >
                             {category.name}
-                        </button>
+                        </Button>
                     ))}
                 </div>
             </div>
-            <button onClick={handleReset} className="mt-4 bg-red-500 text-white py-2 px-4 rounded">
-                Reset
-            </button>
+            <div className="mt-4 flex flex-1 flex-row gap-x-2 items-center">
+                <Button 
+                    onClick={handleReset} 
+                    className="flex-1"
+                    variant="secondary"
+                    size="lg"
+                >
+                    Reset
+                </Button>
+                <SheetClose asChild>
+                    <Button 
+                        type="submit"
+                        variant="default"
+                        size="lg"
+                        className="flex-1"
+                    >
+                        Apply
+                    </Button>
+                </SheetClose>
+            </div>
         </div>
     );
 };

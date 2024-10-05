@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 
 
 interface FilterContainerProps {
-    sizes: { id: string; name: string }[];
+    sizes: { id: string; value: string }[];
     colors: { id: string; name: string }[];
     categories: { id: string; name: string }[];
     // sizes: Size[];
