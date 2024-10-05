@@ -57,6 +57,10 @@ const Filter: React.FC<FilterProps> = ({
                             onClick={() => handleColorChange(index)}
                             className={selectedColor === color.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
                         >
+                            <span
+                                className="border border-white mr-2 inline-block w-4 h-4 rounded-full"
+                                style={{ backgroundColor: color.name }}
+                            ></span>
                             {color.name}
                         </Button>
                     ))}
