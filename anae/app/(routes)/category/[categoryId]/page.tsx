@@ -6,9 +6,10 @@ import Container from '@/components/ui/container';
 import Billboard from '@/components/billboard';
 import ProductCard from "@/components/ui/product-card";
  import NoResults from '@/components/ui/no-results';
+ import FilterContainer from '@/components/filter-container';
 
-import Filter from './components/filter';
-import MobileFilters from "./components/mobile-filters";
+// import Filter from './components/filter';
+// import MobileFilters from "./components/mobile-filters";
 
 export const revalidate = 0;
 
@@ -37,6 +38,11 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     const colors = await getColors();
     const category = await getCategory(params.categoryId);
 
+    const handleFilterChange = (filters: { sizeId?: string; colorId?: string; categoryId?: string }) => {
+        // Mettre à jour les produits en fonction des filtres
+        // Vous pouvez utiliser une fonction de navigation pour mettre à jour les paramètres de recherche dans l'URL
+    };
+
     return (
         <div className='bg-white'>
             {/* <Billboard
@@ -49,9 +55,14 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                             {category.name}
                             <span className="text-lg text-gray-600 align-top">{products.length}</span>
                         </h1>
-                        <MobileFilters
+                        {/* <MobileFilters
                             sizes={sizes}
                             colors={colors}
+                        /> */}
+                        <FilterContainer
+                            sizes={sizes}
+                            colors={colors}
+                            categories={[category]} // Vous pouvez passer d'autres catégories si nécessaire
                         />
                     </div>
                 </Container>
