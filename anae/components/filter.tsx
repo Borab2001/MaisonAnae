@@ -31,7 +31,7 @@ const Filter: React.FC<FilterProps> = ({
     return (
         <div className="flex flex-col gap-4">
             <div>
-                <h3 className="text-sm font-medium text-gray-700">Sizes</h3>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Sizes</h3>
                 <div className="flex gap-2">
                     {sizes.map((size, index) => (
                         <Button
@@ -39,7 +39,7 @@ const Filter: React.FC<FilterProps> = ({
                             variant="size"
                             size="icon"
                             onClick={() => handleSizeChange(index)}
-                            className={selectedSize === size.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
+                            className={selectedSize === size.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary hover:bg-secondary hover:text-secondary-foreground"}
                         >
                             {size.value}
                         </Button>
@@ -47,7 +47,7 @@ const Filter: React.FC<FilterProps> = ({
                 </div>
             </div>
             <div>
-                <h3 className="text-sm font-medium text-gray-700">Colors</h3>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Colors</h3>
                 <div className="flex gap-2">
                     {colors.map((color, index) => (
                         <Button
@@ -55,7 +55,7 @@ const Filter: React.FC<FilterProps> = ({
                             variant="size"
                             size="default"
                             onClick={() => handleColorChange(index)}
-                            className={selectedColor === color.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
+                            className={selectedColor === color.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary hover:bg-secondary hover:text-secondary-foreground"}
                         >
                             <span
                                 className="border border-white mr-2 inline-block w-4 h-4 rounded-full"
@@ -67,15 +67,15 @@ const Filter: React.FC<FilterProps> = ({
                 </div>
             </div>
             <div>
-                <h3 className="text-sm font-medium text-gray-700">Categories</h3>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">Categories</h3>
                 <div className="flex gap-2">
                     {categories.map((category, index) => (
                         <Button
                             key={category.id}
                             variant="size"
-                            size="icon"
+                            size="default"
                             onClick={() => handleCategoryChange(index)}
-                            className={selectedCategory === category.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary"}
+                            className={selectedCategory === category.id ? "bg-primary text-primary-foreground" : "bg-transparent text-primary hover:bg-secondary hover:text-secondary-foreground"}
                         >
                             {category.name}
                         </Button>
@@ -86,7 +86,7 @@ const Filter: React.FC<FilterProps> = ({
                 <Button 
                     onClick={handleReset} 
                     className="flex-1"
-                    variant="secondary"
+                    variant="outline"
                     size="lg"
                 >
                     Reset
